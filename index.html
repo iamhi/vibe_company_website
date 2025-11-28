@@ -3,41 +3,816 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Company Showcase</title>
+    <title>Home - InnovateTech Solutions | Leading Technology Consulting</title>
+    <meta name="description" content="InnovateTech Solutions is a leading technology consulting company providing innovative digital solutions, web development, and IT services to help businesses thrive in the digital age.">
+    <meta name="keywords" content="technology consulting, web development, digital solutions, IT services, business innovation">
+    <meta name="author" content="InnovateTech Solutions">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="InnovateTech Solutions - Leading Technology Consulting">
+    <meta property="og:description" content="Transform your business with innovative technology solutions and expert consulting services.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://innovatetechsolutions.com">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    <!-- Stylesheet -->
     <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <header>
-        <!-- Navigation and company logo will go here -->
-        <nav>
-            <ul>
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="activities.html">Activities</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-            </ul>
-        </nav>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Header with Navigation -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav" role="navigation" aria-label="Main navigation">
+                <!-- Company Logo -->
+                <a href="index.html" class="nav-brand" aria-label="InnovateTech Solutions - Home">
+                    <i class="fas fa-rocket"></i>
+                    <span>InnovateTech</span>
+                </a>
+                
+                <!-- Desktop Navigation -->
+                <div class="nav-menu">
+                    <ul class="nav-links">
+                        <li><a href="index.html" class="nav-link active">Home</a></li>
+                        <li><a href="about.html" class="nav-link">About Us</a></li>
+                        <li class="nav-dropdown">
+                            <a href="activities.html" class="nav-link nav-dropdown-toggle">Services</a>
+                            <div class="nav-dropdown-menu">
+                                <a href="activities.html#web-development" class="nav-dropdown-item">Web Development</a>
+                                <a href="activities.html#mobile-solutions" class="nav-dropdown-item">Mobile Solutions</a>
+                                <a href="activities.html#cloud-services" class="nav-dropdown-item">Cloud Services</a>
+                                <a href="activities.html#digital-consulting" class="nav-dropdown-item">Digital Consulting</a>
+                            </div>
+                        </li>
+                        <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                        <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    </ul>
+                    
+                    <!-- CTA Buttons -->
+                    <div class="nav-cta">
+                        <a href="contact.html" class="btn btn-primary">Get Quote</a>
+                    </div>
+                    
+                    <!-- Search -->
+                    <div class="nav-search">
+                        <button class="nav-search-toggle" aria-label="Search">
+                            <i class="fas fa-search"></i>
+                        </button>
+                        <div class="nav-search-form">
+                            <input type="search" class="nav-search-input" placeholder="Search..." aria-label="Search">
+                        </div>
+                    </div>
+                    
+                    <!-- Social Media -->
+                    <div class="nav-social">
+                        <a href="#" class="nav-social-link" aria-label="Facebook">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" class="nav-social-link" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="nav-social-link" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                    
+                    <!-- Language Switcher -->
+                    <div class="nav-language">
+                        <button class="nav-language-toggle" aria-label="Language">
+                            <i class="fas fa-globe"></i>
+                            EN
+                        </button>
+                        <div class="nav-language-menu">
+                            <a href="#" class="nav-language-option" data-lang="en">English</a>
+                            <a href="#" class="nav-language-option" data-lang="es">Español</a>
+                            <a href="#" class="nav-language-option" data-lang="fr">Français</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Mobile Menu Toggle -->
+                    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </nav>
+        </div>
+        
+        <!-- Mobile Navigation Menu -->
+        <div class="nav-mobile" id="nav-mobile">
+            <div class="nav-mobile-header">
+                <div class="nav-mobile-brand">
+                    <i class="fas fa-rocket"></i>
+                    <span>InnovateTech</span>
+                </div>
+                <button class="nav-mobile-close" aria-label="Close mobile menu">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="nav-mobile-links">
+                <a href="index.html" class="nav-mobile-link active">Home</a>
+                <a href="about.html" class="nav-mobile-link">About Us</a>
+                <a href="activities.html" class="nav-mobile-link">Services</a>
+                <a href="gallery.html" class="nav-mobile-link">Gallery</a>
+                <a href="contact.html" class="nav-mobile-link">Contact</a>
+            </div>
+            <div class="nav-mobile-cta">
+                <a href="contact.html" class="btn btn-primary">Get Quote</a>
+                <a href="tel:+1234567890" class="btn btn-outline">Call Us</a>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu Overlay -->
+        <div class="nav-overlay" id="nav-overlay"></div>
     </header>
     
-    <main>
-        <!-- Main content for home page will go here -->
-        <section id="hero">
-            <h1>Welcome to Our Company</h1>
-            <p>Your trusted partner for excellence and innovation</p>
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="hero" id="hero">
+            <div class="hero-background">
+                <div class="hero-overlay"></div>
+            </div>
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Transform Your Business with Innovative Technology</h1>
+                    <p class="hero-subtitle">Empowering businesses to thrive in the digital age through cutting-edge technology solutions and expert consulting</p>
+                    <div class="hero-actions">
+                        <a href="#services" class="btn btn-primary btn-lg">Explore Our Services</a>
+                        <a href="contact.html" class="btn btn-outline btn-lg">Get Started Today</a>
+                        <a href="#overview" class="btn btn-secondary btn-lg">Learn More</a>
+                    </div>
+                </div>
+                <div class="scroll-indicator" id="scroll-indicator">
+                    <div class="scroll-arrow">
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <span>Scroll Down</span>
+                </div>
+            </div>
         </section>
         
-        <section id="overview">
-            <h2>About Our Company</h2>
-            <p>We provide exceptional services and solutions to help your business grow.</p>
+        <!-- Company Overview Section -->
+        <section class="section section-lg" id="overview">
+            <div class="container">
+                <div class="grid grid-cols-1 grid-cols-lg-2 gap-12">
+                    <div class="overview-content">
+                        <h2 class="section-title">Leading Digital Transformation Since 2015</h2>
+                        <div class="overview-text">
+                            <p class="text-lg mb-6">
+                                At InnovateTech Solutions, we specialize in helping businesses navigate the complex digital landscape. Our team of expert consultants and developers work closely with clients to deliver customized technology solutions that drive growth, efficiency, and innovation.
+                            </p>
+                            <p class="text-lg mb-6">
+                                With over 8 years of experience in the industry, we've successfully completed more than 500 projects for clients ranging from startups to Fortune 500 companies. Our commitment to excellence and customer satisfaction has made us a trusted partner in digital transformation.
+                            </p>
+                            <p class="text-lg">
+                                We believe in the power of technology to transform businesses and create new opportunities. Our mission is to provide innovative, scalable, and cost-effective solutions that help our clients stay ahead of the competition and achieve their strategic goals.
+                            </p>
+                        </div>
+                        
+                        <!-- Mission Statement -->
+                        <div class="mission-statement mt-8">
+                            <h3 class="text-2xl font-bold mb-4">Our Mission</h3>
+                            <blockquote class="mission-quote">
+                                "To empower businesses with innovative technology solutions that drive growth, enhance efficiency, and create lasting competitive advantage in the digital marketplace."
+                            </blockquote>
+                        </div>
+                    </div>
+                    
+                    <div class="overview-visual">
+                        <div class="company-image">
+                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
+                                 alt="Modern office workspace with technology team collaborating" 
+                                 class="img-responsive img-rounded">
+                        </div>
+                        
+                        <!-- Key Statistics -->
+                        <div class="stats-grid grid grid-cols-2 gap-6 mt-8">
+                            <div class="stat-card">
+                                <div class="stat-number">8+</div>
+                                <div class="stat-label">Years in Business</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">500+</div>
+                                <div class="stat-label">Projects Completed</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">200+</div>
+                                <div class="stat-label">Happy Clients</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">50+</div>
+                                <div class="stat-label">Team Members</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Featured Services Section -->
+        <section class="section section-lg bg-background-secondary" id="services">
+            <div class="container">
+                <div class="section-header text-center mb-12">
+                    <h2 class="section-title">Our Core Services</h2>
+                    <p class="section-subtitle text-lg">Comprehensive technology solutions tailored to your business needs</p>
+                </div>
+                
+                <div class="grid grid-cols-1 grid-cols-md-2 grid-cols-lg-4 gap-8">
+                    <!-- Service 1 -->
+                    <div class="service-card card">
+                        <div class="service-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3 class="service-title">Web Development</h3>
+                        <p class="service-description">Custom web applications built with modern frameworks and best practices to deliver exceptional user experiences.</p>
+                        <a href="activities.html#web-development" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    
+                    <!-- Service 2 -->
+                    <div class="service-card card">
+                        <div class="service-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3 class="service-title">Mobile Solutions</h3>
+                        <p class="service-description">Native and cross-platform mobile applications that engage users and drive business growth on all devices.</p>
+                        <a href="activities.html#mobile-solutions" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    
+                    <!-- Service 3 -->
+                    <div class="service-card card">
+                        <div class="service-icon">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <h3 class="service-title">Cloud Services</h3>
+                        <p class="service-description">Scalable cloud infrastructure and migration services to optimize performance and reduce operational costs.</p>
+                        <a href="activities.html#cloud-services" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    
+                    <!-- Service 4 -->
+                    <div class="service-card card">
+                        <div class="service-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="service-title">Digital Consulting</h3>
+                        <p class="service-description">Strategic technology consulting to help businesses leverage digital tools and achieve their transformation goals.</p>
+                        <a href="activities.html#digital-consulting" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-12">
+                    <a href="activities.html" class="btn btn-primary btn-lg">View All Services</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Trust Indicators Section -->
+        <section class="section section-lg" id="trust">
+            <div class="container">
+                <!-- Client Testimonials -->
+                <div class="testimonials-section mb-16">
+                    <div class="section-header text-center mb-12">
+                        <h2 class="section-title">What Our Clients Say</h2>
+                        <p class="section-subtitle text-lg">Trusted by businesses across various industries</p>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 grid-cols-md-3 gap-8">
+                        <!-- Testimonial 1 -->
+                        <div class="testimonial-card card">
+                            <div class="testimonial-content">
+                                <div class="testimonial-stars mb-4">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <p class="testimonial-text">"InnovateTech Solutions transformed our online presence completely. Their expertise and dedication helped us achieve a 300% increase in online conversions within just 6 months."</p>
+                                <div class="testimonial-author mt-6">
+                                    <div class="author-info">
+                                        <div class="author-name">Sarah Johnson</div>
+                                        <div class="author-title">CEO, TechStart Inc.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Testimonial 2 -->
+                        <div class="testimonial-card card">
+                            <div class="testimonial-content">
+                                <div class="testimonial-stars mb-4">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <p class="testimonial-text">"Working with InnovateTech was the best decision we made for our digital transformation. They delivered beyond our expectations and continue to support our growth."</p>
+                                <div class="testimonial-author mt-6">
+                                    <div class="author-info">
+                                        <div class="author-name">Michael Chen</div>
+                                        <div class="author-title">CTO, Global Retail Corp</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Testimonial 3 -->
+                        <div class="testimonial-card card">
+                            <div class="testimonial-content">
+                                <div class="testimonial-stars mb-4">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <p class="testimonial-text">"The team's technical expertise and professional approach made our complex project seem effortless. Highly recommend their services to any business looking to innovate."</p>
+                                <div class="testimonial-author mt-6">
+                                    <div class="author-info">
+                                        <div class="author-name">Emily Rodriguez</div>
+                                        <div class="author-title">Director, FinanceHub</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Client Logos -->
+                <div class="client-logos-section">
+                    <div class="section-header text-center mb-12">
+                        <h3 class="section-title">Trusted by Leading Companies</h3>
+                        <p class="section-subtitle">Proud to work with industry leaders and innovators</p>
+                    </div>
+                    
+                    <div class="client-logos-grid grid grid-cols-2 grid-cols-md-4 grid-cols-lg-6 gap-8">
+                        <div class="client-logo">
+                            <img src="https://via.placeholder.com/150x80/2563eb/ffffff?text=Client1" alt="Client 1 Logo" class="img-responsive">
+                        </div>
+                        <div class="client-logo">
+                            <img src="https://via.placeholder.com/150x80/64748b/ffffff?text=Client2" alt="Client 2 Logo" class="img-responsive">
+                        </div>
+                        <div class="client-logo">
+                            <img src="https://via.placeholder.com/150x80/f59e0b/ffffff?text=Client3" alt="Client 3 Logo" class="img-responsive">
+                        </div>
+                        <div class="client-logo">
+                            <img src="https://via.placeholder.com/150x80/10b981/ffffff?text=Client4" alt="Client 4 Logo" class="img-responsive">
+                        </div>
+                        <div class="client-logo">
+                            <img src="https://via.placeholder.com/150x80/8b5cf6/ffffff?text=Client5" alt="Client 5 Logo" class="img-responsive">
+                        </div>
+                        <div class="client-logo">
+                            <img src="https://via.placeholder.com/150x80/ef4444/ffffff?text=Client6" alt="Client 6 Logo" class="img-responsive">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Awards and Certifications -->
+                <div class="awards-section mt-16">
+                    <div class="section-header text-center mb-12">
+                        <h3 class="section-title">Awards & Certifications</h3>
+                        <p class="section-subtitle">Recognized for excellence in technology solutions</p>
+                    </div>
+                    
+                    <div class="awards-grid grid grid-cols-1 grid-cols-md-3 gap-8">
+                        <div class="award-card card text-center">
+                            <div class="award-icon">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <h4 class="award-title">Best Tech Consulting 2023</h4>
+                            <p class="award-description">Technology Innovation Awards</p>
+                        </div>
+                        <div class="award-card card text-center">
+                            <div class="award-icon">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <h4 class="award-title">ISO 9001:2015 Certified</h4>
+                            <p class="award-description">Quality Management Systems</p>
+                        </div>
+                        <div class="award-card card text-center">
+                            <div class="award-icon">
+                                <i class="fas fa-medal"></i>
+                            </div>
+                            <h4 class="award-title">Top 100 IT Companies</h4>
+                            <p class="award-description">Global Business Review</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Call to Action Section -->
+        <section class="cta-section section section-lg bg-primary">
+            <div class="container">
+                <div class="cta-content text-center">
+                    <h2 class="cta-title text-4xl font-bold text-inverse mb-6">Ready to Transform Your Business?</h2>
+                    <p class="cta-subtitle text-xl text-inverse mb-8">Let's discuss how we can help you achieve your digital goals</p>
+                    <div class="cta-actions">
+                        <a href="contact.html" class="btn btn-outline btn-lg text-inverse">Get Free Consultation</a>
+                        <a href="tel:+1234567890" class="btn btn-secondary btn-lg ml-4">Call Us Now</a>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
     
-    <footer>
-        <!-- Footer content will go here -->
-        <p>&copy; 2024 Company Showcase. All rights reserved.</p>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <i class="fas fa-rocket"></i>
+                        <span>InnovateTech Solutions</span>
+                    </div>
+                    <p class="footer-description">Transforming businesses through innovative technology solutions and expert consulting.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="activities.html">Services</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-title">Contact Info</h4>
+                    <ul class="footer-contact">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Tech Street, Silicon Valley, CA 94025</li>
+                        <li><i class="fas fa-phone"></i> +1 (234) 567-8900</li>
+                        <li><i class="fas fa-envelope"></i> info@innovatetechsolutions.com</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 InnovateTech Solutions. All rights reserved. | <a href="#" class="footer-link">Privacy Policy</a> | <a href="#" class="footer-link">Terms of Service</a></p>
+            </div>
+        </div>
     </footer>
     
+    <!-- JavaScript -->
     <script src="js/main.js"></script>
+    
+    <!-- Additional Scripts for Interactive Elements -->
+    <script>
+        // Mobile Navigation Toggle
+        document.getElementById('nav-toggle').addEventListener('click', function() {
+            document.getElementById('nav-menu').classList.toggle('active');
+        });
+        
+        // Smooth Scrolling for Navigation Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Scroll Indicator Animation
+        const scrollIndicator = document.getElementById('scroll-indicator');
+        if (scrollIndicator) {
+            scrollIndicator.addEventListener('click', function() {
+                document.getElementById('overview').scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        }
+        
+        // Fade-in Animation on Scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all sections for animation
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+        
+        // Parallax Effect for Hero Section
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+    </script>
+    
+    <style>
+        /* Additional styles for home page specific elements */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+        
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+            background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: var(--color-text-inverse);
+            max-width: 800px;
+        }
+        
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: var(--font-weight-bold);
+            margin-bottom: var(--space-6);
+            line-height: var(--line-height-tight);
+        }
+        
+        .hero-subtitle {
+            font-size: clamp(1.125rem, 2vw, 1.5rem);
+            margin-bottom: var(--space-8);
+            line-height: var(--line-height-relaxed);
+            opacity: 0.9;
+        }
+        
+        .hero-actions {
+            display: flex;
+            gap: var(--space-4);
+            flex-wrap: wrap;
+        }
+        
+        .scroll-indicator {
+            position: absolute;
+            bottom: var(--space-8);
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--color-text-inverse);
+            text-align: center;
+            cursor: pointer;
+            transition: all var(--transition-base);
+        }
+        
+        .scroll-indicator:hover {
+            transform: translateX(-50%) translateY(-4px);
+        }
+        
+        .scroll-arrow {
+            font-size: var(--font-size-2xl);
+            margin-bottom: var(--space-2);
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+        
+        .section-title {
+            font-size: var(--font-size-3xl);
+            font-weight: var(--font-weight-bold);
+            color: var(--color-text-primary);
+            margin-bottom: var(--space-4);
+        }
+        
+        .section-subtitle {
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-8);
+        }
+        
+        .service-card {
+            text-align: center;
+            padding: var(--space-8);
+            height: 100%;
+            transition: all var(--transition-base);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .service-icon {
+            font-size: var(--font-size-4xl);
+            color: var(--color-primary);
+            margin-bottom: var(--space-4);
+        }
+        
+        .service-title {
+            font-size: var(--font-size-xl);
+            font-weight: var(--font-weight-semibold);
+            margin-bottom: var(--space-4);
+            color: var(--color-text-primary);
+        }
+        
+        .service-description {
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-6);
+            line-height: var(--line-height-relaxed);
+        }
+        
+        .service-link {
+            color: var(--color-primary);
+            font-weight: var(--font-weight-medium);
+            text-decoration: none;
+            transition: all var(--transition-base);
+        }
+        
+        .service-link:hover {
+            color: var(--color-primary-dark);
+        }
+        
+        .stat-card {
+            text-align: center;
+            padding: var(--space-6);
+            background: var(--color-background);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-base);
+        }
+        
+        .stat-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-4px);
+        }
+        
+        .stat-number {
+            font-size: var(--font-size-3xl);
+            font-weight: var(--font-weight-bold);
+            color: var(--color-primary);
+            margin-bottom: var(--space-2);
+        }
+        
+        .stat-label {
+            font-size: var(--font-size-sm);
+            color: var(--color-text-secondary);
+            font-weight: var(--font-weight-medium);
+        }
+        
+        .mission-quote {
+            font-size: var(--font-size-lg);
+            font-style: italic;
+            color: var(--color-text-secondary);
+            border-left: 4px solid var(--color-primary);
+            padding-left: var(--space-6);
+            margin: var(--space-6) 0;
+            line-height: var(--line-height-relaxed);
+        }
+        
+        .testimonial-card {
+            height: 100%;
+        }
+        
+        .testimonial-stars {
+            color: var(--color-accent);
+        }
+        
+        .testimonial-text {
+            color: var(--color-text-secondary);
+            line-height: var(--line-height-relaxed);
+            font-style: italic;
+        }
+        
+        .author-name {
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-text-primary);
+        }
+        
+        .author-title {
+            font-size: var(--font-size-sm);
+            color: var(--color-text-muted);
+        }
+        
+        .client-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-4);
+            background: var(--color-background);
+            border-radius: var(--radius-md);
+            transition: all var(--transition-base);
+        }
+        
+        .client-logo:hover {
+            box-shadow: var(--shadow-md);
+            transform: scale(1.05);
+        }
+        
+        .award-card {
+            padding: var(--space-6);
+            height: 100%;
+        }
+        
+        .award-icon {
+            font-size: var(--font-size-3xl);
+            color: var(--color-accent);
+            margin-bottom: var(--space-4);
+        }
+        
+        .award-title {
+            font-size: var(--font-size-lg);
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-text-primary);
+            margin-bottom: var(--space-2);
+        }
+        
+        .award-description {
+            color: var(--color-text-secondary);
+            font-size: var(--font-size-sm);
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Mobile Responsive Styles */
+        @media (max-width: 767px) {
+            .hero-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .hero-actions .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .service-card {
+                padding: var(--space-6);
+            }
+        }
+    </style>
 </body>
 </html>
