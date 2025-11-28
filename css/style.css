@@ -1059,6 +1059,116 @@ p {
     .nav-overlay {
         display: block;
     }
+    
+    /* Mobile-specific optimizations */
+    .container {
+        padding: 0 1rem;
+    }
+    
+    .hero {
+        min-height: 90vh;
+        padding: 2rem 0;
+    }
+    
+    .hero-title {
+        font-size: clamp(2rem, 8vw, 3rem);
+        line-height: 1.1;
+    }
+    
+    .hero-subtitle {
+        font-size: clamp(1rem, 4vw, 1.25rem);
+    }
+    
+    .section {
+        padding: 4rem 0;
+    }
+    
+    .section-lg {
+        padding: 6rem 0;
+    }
+    
+    /* Touch-friendly targets */
+    .btn {
+        min-height: 48px;
+        padding: 0.875rem 1.5rem;
+        font-size: 1rem;
+    }
+    
+    .nav-link {
+        padding: 0.875rem 1rem;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+    }
+    
+    .nav-mobile-link {
+        padding: 1rem;
+        min-height: 48px;
+        font-size: 1.125rem;
+    }
+    
+    /* Improved mobile typography */
+    h1 { font-size: clamp(1.75rem, 6vw, 2.5rem); }
+    h2 { font-size: clamp(1.5rem, 5vw, 2rem); }
+    h3 { font-size: clamp(1.25rem, 4vw, 1.75rem); }
+    
+    /* Mobile grid adjustments */
+    .grid-cols-md-2 { grid-template-columns: 1fr; }
+    .grid-cols-lg-2 { grid-template-columns: 1fr; }
+    .grid-cols-lg-4 { grid-template-columns: repeat(2, 1fr); }
+    
+    /* Mobile card optimizations */
+    .card {
+        margin-bottom: 1rem;
+        border-radius: 0.75rem;
+    }
+    
+    .service-card {
+        padding: 2rem 1.5rem;
+    }
+    
+    /* Mobile form optimizations */
+    .form-input,
+    .form-textarea,
+    .form-select {
+        font-size: 16px; /* Prevent zoom on iOS */
+        min-height: 48px;
+        padding: 0.875rem;
+    }
+    
+    /* Mobile image optimizations */
+    .img-responsive {
+        border-radius: 0.5rem;
+    }
+    
+    /* Mobile footer optimizations */
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
+    
+    .footer-section {
+        text-align: center;
+    }
+    
+    .footer-social {
+        justify-content: center;
+    }
+    
+    /* Performance optimizations for mobile */
+    .hero-background {
+        background-attachment: scroll; /* Disable parallax on mobile for performance */
+    }
+    
+    /* Reduce motion on mobile for better performance */
+    @media (prefers-reduced-motion: reduce) {
+        * {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+        }
+    }
 }
 
 /* Tablet Navigation */

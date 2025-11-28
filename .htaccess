@@ -1,0 +1,184 @@
+# Security Headers
+<IfModule mod_headers.c>
+    # HSTS (HTTP Strict Transport Security)
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" env=HTTPS
+    
+    # Content Security Policy
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://www.google-analytics.com; frame-ancestors 'none';"
+    
+    # X-Frame-Options
+    Header always set X-Frame-Options "DENY"
+    
+    # X-Content-Type-Options
+    Header always set X-Content-Type-Options "nosniff"
+    
+    # Referrer Policy
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    
+    # Permissions Policy
+    Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=()"
+    
+    # Remove Server Header
+    Header unset Server
+    Header always set Server "InnovateTech"
+</IfModule>
+
+# Performance Optimizations
+<IfModule mod_expires.c>
+    ExpiresActive On
+    
+    # Images
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/x-icon "access plus 1 year"
+    
+    # Fonts
+    ExpiresByType font/woff "access plus 1 year"
+    ExpiresByType font/woff2 "access plus 1 year"
+    ExpiresByType application/font-woff "access plus 1 year"
+    ExpiresByType application/font-woff2 "access plus 1 year"
+    
+    # CSS and JavaScript
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType text/javascript "access plus 1 month"
+    
+    # Documents
+    ExpiresByType application/pdf "access plus 1 month"
+    ExpiresByType application/x-shockwave-flash "access plus 1 month"
+    
+    # HTML
+    ExpiresByType text/html "access plus 1 hour"
+</IfModule>
+
+# Gzip Compression
+<IfModule mod_deflate.c>
+    # Compress HTML, CSS, JavaScript, Text, XML and fonts
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/vnd.ms-fontobject
+    AddOutputFilterByType DEFLATE application/x-font
+    AddOutputFilterByType DEFLATE application/x-font-opentype
+    AddOutputFilterByType DEFLATE application/x-font-otf
+    AddOutputFilterByType DEFLATE application/x-font-truetype
+    AddOutputFilterByType DEFLATE application/x-font-ttf
+    AddOutputFilterByType DEFLATE application/x-javascript
+    AddOutputFilterByType DEFLATE application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE font/opentype
+    AddOutputFilterByType DEFLATE font/otf
+    AddOutputFilterByType DEFLATE font/ttf
+    AddOutputFilterByType DEFLATE image/svg+xml
+    AddOutputFilterByType DEFLATE image/x-icon
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/javascript
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/xml
+    
+    # Remove browser bugs (only needed for really old browsers)
+    BrowserMatch ^Mozilla/4 gzip-only-text/html
+    BrowserMatch ^Mozilla/4\.0[678] no-gzip
+    BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+    Header append Vary User-Agent
+</IfModule>
+
+# Brotli Compression (if available)
+<IfModule mod_brotli.c>
+    AddOutputFilterByType BROTLI application/javascript
+    AddOutputFilterByType BROTLI application/rss+xml
+    AddOutputFilterByType BROTLI application/vnd.ms-fontobject
+    AddOutputFilterByType BROTLI application/x-font
+    AddOutputFilterByType BROTLI application/x-font-opentype
+    AddOutputFilterByType BROTLI application/x-font-otf
+    AddOutputFilterByType BROTLI application/x-font-truetype
+    AddOutputFilterByType BROTLI application/x-font-ttf
+    AddOutputFilterByType BROTLI application/x-javascript
+    AddOutputFilterByType BROTLI application/xhtml+xml
+    AddOutputFilterByType BROTLI application/xml
+    AddOutputFilterByType BROTLI font/opentype
+    AddOutputFilterByType BROTLI font/otf
+    AddOutputFilterByType BROTLI font/ttf
+    AddOutputFilterByType BROTLI image/svg+xml
+    AddOutputFilterByType BROTLI image/x-icon
+    AddOutputFilterByType BROTLI text/css
+    AddOutputFilterByType BROTLI text/html
+    AddOutputFilterByType BROTLI text/javascript
+    AddOutputFilterByType BROTLI text/plain
+    AddOutputFilterByType BROTLI text/xml
+</IfModule>
+
+# Force HTTPS
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# Redirect www to non-www
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+    RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+</IfModule>
+
+# Prevent Access to Sensitive Files
+<FilesMatch "^\.">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+<FilesMatch "^(README|LICENSE|\.gitignore|\.env)">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Block access to configuration and sensitive directories
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^(tasks|summaries|\.git) - [F,L]
+</IfModule>
+
+# Custom Error Pages
+ErrorDocument 404 /404.html
+ErrorDocument 403 /403.html
+ErrorDocument 500 /500.html
+
+# MIME Types
+<IfModule mod_mime.c>
+    # WebP
+    AddType image/webp .webp
+    
+    # WOFF2
+    AddType font/woff2 .woff2
+    
+    # SVG
+    AddType image/svg+xml .svg
+    
+    # Manifest
+    AddType application/manifest+json .webmanifest
+</IfModule>
+
+# Character Encoding
+AddDefaultCharset UTF-8
+<IfModule mod_mime.c>
+    AddCharset utf-8 .css
+    AddCharset utf-8 .js
+    AddCharset utf-8 .html
+    AddCharset utf-8 .xml
+    AddCharset utf-8 .json
+</IfModule>
+
+# ETag Configuration
+<IfModule mod_headers.c>
+    Header unset ETag
+    FileETag None
+</IfModule>
+
+# Prevent 404 errors for favicon
+<Files favicon.ico>
+    ErrorDocument 404 "No favicon"
+</Files>

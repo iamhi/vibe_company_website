@@ -1,0 +1,30 @@
+User-agent: *
+Allow: /
+
+# Prioritize important pages
+Crawl-delay: 1
+
+# Disallow temporary or private directories
+Disallow: /temp/
+Disallow: /private/
+Disallow: /.git/
+Disallow: /tasks/
+Disallow: /summaries/
+
+# Allow specific important files
+Allow: /css/
+Allow: /js/
+Allow: /images/
+
+# Sitemap location
+Sitemap: https://innovatetechsolutions.com/sitemap.xml
+
+# Block common bots that don't follow rules
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /

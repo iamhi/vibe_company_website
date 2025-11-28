@@ -1,0 +1,1 @@
+Run the next task in ./tasks folder based on the tasks which don't have a summary in ./summaries, exclude task 1, task 2, tasks.txt, prompt.txt. Execute the requirement fully, update the local files. Create a summary of what you have done in /summaries with format summary-task-{numOfTask}.txt . Finally commit all changes and mention the task number in the commit.

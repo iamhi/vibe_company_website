@@ -4,6 +4,9 @@
 document.addEventListener('DOMContentLoaded', function() {
     console.log('Company Showcase Website loaded');
     
+    // Performance monitoring
+    initPerformanceMonitoring();
+    
     // Navigation System
     initNavigation();
     
@@ -20,6 +23,157 @@ document.addEventListener('DOMContentLoaded', function() {
     initMap();
     initFooterFeatures();
 });
+
+/**
+ * Initialize Performance Monitoring
+ */
+function initPerformanceMonitoring() {
+    // Track Core Web Vitals
+    if ('PerformanceObserver' in window) {
+        // Largest Contentful Paint (LCP)
+        const lcpObserver = new PerformanceObserver((entryList) => {
+            const entries = entryList.getEntries();
+            const lastEntry = entries[entries.length - 1];
+            
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'LCP', {
+                    event_category: 'Web Vitals',
+                    event_label: 'LCP',
+                    value: Math.round(lastEntry.startTime),
+                    non_interaction: true
+                });
+            }
+        });
+        
+        lcpObserver.observe({ entryTypes: ['largest-contentful-paint'] });
+        
+        // First Input Delay (FID)
+        const fidObserver = new PerformanceObserver((entryList) => {
+            const entries = entryList.getEntries();
+            entries.forEach((entry) => {
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'FID', {
+                        event_category: 'Web Vitals',
+                        event_label: 'FID',
+                        value: Math.round(entry.processingStart - entry.startTime),
+                        non_interaction: true
+                    });
+                }
+            });
+        });
+        
+        fidObserver.observe({ entryTypes: ['first-input'] });
+        
+        // Cumulative Layout Shift (CLS)
+        let clsValue = 0;
+        const clsObserver = new PerformanceObserver((entryList) => {
+            const entries = entryList.getEntries();
+            entries.forEach((entry) => {
+                if (!entry.hadRecentInput) {
+                    clsValue += entry.value;
+                }
+            });
+            
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'CLS', {
+                    event_category: 'Web Vitals',
+                    event_label: 'CLS',
+                    value: Math.round(clsValue * 1000),
+                    non_interaction: true
+                });
+            }
+        });
+        
+        clsObserver.observe({ entryTypes: ['layout-shift'] });
+    }
+    
+    // Track page load time
+    window.addEventListener('load', function() {
+        setTimeout(() => {
+            const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
+            
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'page_load_time', {
+                    event_category: 'performance',
+                    event_label: 'load_time',
+                    value: Math.round(loadTime),
+                    non_interaction: true
+                });
+            }
+            
+            console.log('Page load time:', loadTime + 'ms');
+        }, 0);
+    });
+    
+    // Track user engagement
+    let engagementTime = 0;
+    let engagementStart = Date.now();
+    
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            engagementTime += Date.now() - engagementStart;
+            
+            if (typeof gtag !== 'undefined' && engagementTime > 0) {
+                gtag('event', 'engagement_time', {
+                    event_category: 'engagement',
+                    event_label: 'time_on_page',
+                    value: Math.round(engagementTime / 1000),
+                    non_interaction: true
+                });
+            }
+        } else {
+            engagementStart = Date.now();
+        }
+    });
+    
+    // Track scroll depth
+    let maxScroll = 0;
+    window.addEventListener('scroll', function() {
+        const scrollPercent = Math.round(
+            (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100
+        );
+        
+        if (scrollPercent > maxScroll) {
+            maxScroll = scrollPercent;
+            
+            // Track milestones
+            if (maxScroll === 25 || maxScroll === 50 || maxScroll === 75 || maxScroll === 90) {
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'scroll_depth', {
+                        event_category: 'engagement',
+                        event_label: 'scroll_percentage',
+                        value: maxScroll,
+                        non_interaction: true
+                    });
+                }
+            }
+        }
+    });
+    
+    // Track errors
+    window.addEventListener('error', function(e) {
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'javascript_error', {
+                event_category: 'error',
+                event_label: e.message,
+                value: 1,
+                non_interaction: true
+            });
+        }
+    });
+    
+    // Track unhandled promise rejections
+    window.addEventListener('unhandledrejection', function(e) {
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'promise_rejection', {
+                event_category: 'error',
+                event_label: e.reason,
+                value: 1,
+                non_interaction: true
+            });
+        }
+    });
+}
 
 /**
  * Initialize Navigation System
