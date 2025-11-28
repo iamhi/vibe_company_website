@@ -3,10 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - InnovateTech Solutions</title>
-    <meta name="description" content="Contact InnovateTech Solutions for technology consulting services. Get in touch with our team for your digital transformation needs.">
+    <title>Contact Us - InnovateTech Solutions | Get in Touch for Technology Solutions</title>
+    <meta name="description" content="Contact InnovateTech Solutions for expert technology consulting, web development, and digital transformation services. Visit our office or reach out via phone, email, or our contact form.">
+    <meta name="keywords" content="contact, technology consulting, web development, digital transformation, office location, customer support, IT services">
+    <meta name="author" content="InnovateTech Solutions">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Contact Us - InnovateTech Solutions">
+    <meta property="og:description" content="Get in touch with our expert team for technology consulting and digital transformation services.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://innovatech.com/contact.html">
+    <meta property="og:image" content="https://innovatech.com/images/contact-og.jpg">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Contact Us - InnovateTech Solutions">
+    <meta name="twitter:description" content="Get in touch with our expert team for technology consulting services.">
+    <meta name="twitter:image" content="https://innovatech.com/images/contact-twitter.jpg">
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://innovatech.com/contact.html">
+    
+    <!-- Structured Data for Contact Page -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ContactPage",
+        "name": "Contact InnovateTech Solutions",
+        "description": "Contact page for InnovateTech Solutions technology consulting services",
+        "url": "https://innovatech.com/contact.html",
+        "mainEntity": {
+            "@type": "Organization",
+            "name": "InnovateTech Solutions",
+            "url": "https://innovatech.com",
+            "telephone": "+1-234-567-8900",
+            "email": "contact@innovatech.com",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "123 Tech Street, Suite 100",
+                "addressLocality": "San Francisco",
+                "addressRegion": "CA",
+                "postalCode": "94105",
+                "addressCountry": "US"
+            },
+            "openingHours": "Mo-Fr 09:00-18:00",
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+1-234-567-8900",
+                "contactType": "customer service",
+                "availableLanguage": ["English", "Spanish", "French"]
+            }
+        }
+    }
+    </script>
+    
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Maps API -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDummyKeyForDemo&callback=initMap"></script>
 </head>
 <body>
     <!-- Header with Navigation -->
@@ -117,20 +173,417 @@
     </header>
     
     <main>
-        <!-- Main content for contact page will go here -->
-        <section id="contact-intro">
-            <h1>Get in Touch</h1>
-            <p>We'd love to hear from you. Contact us for any inquiries or to discuss your project.</p>
+        <!-- Hero Section -->
+        <section class="hero hero-contact">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Get in Touch</h1>
+                    <p class="hero-subtitle">We're here to help transform your business with innovative technology solutions. Reach out to our expert team today.</p>
+                    <div class="hero-cta">
+                        <a href="#contact-form-section" class="btn btn-primary btn-large">Send Message</a>
+                        <a href="tel:+1234567890" class="btn btn-outline btn-large">Call Now</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-graphic">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                </div>
+            </div>
         </section>
-        
-        <section id="contact-form">
-            <h2>Send Us a Message</h2>
-            <p>Fill out the form below and we'll get back to you as soon as possible.</p>
+
+        <!-- Contact Information Section -->
+        <section class="contact-info">
+            <div class="container">
+                <div class="contact-info-grid">
+                    <div class="contact-info-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Office Location</h3>
+                            <p>123 Tech Street, Suite 100<br>San Francisco, CA 94105<br>United States</p>
+                            <a href="#map-section" class="btn-link">Get Directions <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Phone Support</h3>
+                            <p>Main: <a href="tel:+1234567890">+1 (234) 567-8900</a><br>
+                            Sales: <a href="tel:+1234567891">+1 (234) 567-8910</a><br>
+                            Support: <a href="tel:+1234567892">+1 (234) 567-8920</a></p>
+                            <p class="contact-hours">Mon-Fri: 9:00 AM - 6:00 PM PST</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Email Us</h3>
+                            <p>General: <a href="mailto:contact@innovatech.com">contact@innovatech.com</a><br>
+                            Sales: <a href="mailto:sales@innovatech.com">sales@innovatech.com</a><br>
+                            Support: <a href="mailto:support@innovatech.com">support@innovatech.com</a></p>
+                            <p class="contact-response">Response within 24 hours</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
-        
-        <section id="location">
-            <h2>Visit Our Office</h2>
-            <p>Find us at our convenient location and meet our team in person.</p>
+
+        <!-- Contact Form and Map Section -->
+        <section class="contact-main">
+            <div class="container">
+                <div class="contact-grid">
+                    <!-- Contact Form -->
+                    <div class="contact-form-section" id="contact-form-section">
+                        <div class="section-header">
+                            <h2 class="section-title">Send Us a Message</h2>
+                            <p class="section-subtitle">Fill out the form below and our team will get back to you within 24 hours</p>
+                        </div>
+                        
+                        <form class="contact-form" id="contactForm" novalidate>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="firstName" class="form-label">First Name *</label>
+                                    <input type="text" id="firstName" name="firstName" class="form-input" required aria-required="true" aria-describedby="firstName-error">
+                                    <span class="form-error" id="firstName-error"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName" class="form-label">Last Name *</label>
+                                    <input type="text" id="lastName" name="lastName" class="form-input" required aria-required="true" aria-describedby="lastName-error">
+                                    <span class="form-error" id="lastName-error"></span>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="email" class="form-label">Email Address *</label>
+                                    <input type="email" id="email" name="email" class="form-input" required aria-required="true" aria-describedby="email-error">
+                                    <span class="form-error" id="email-error"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone" class="form-label">Phone Number</label>
+                                    <input type="tel" id="phone" name="phone" class="form-input" placeholder="+1 (555) 123-4567" aria-describedby="phone-error">
+                                    <span class="form-error" id="phone-error"></span>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="company" class="form-label">Company Name</label>
+                                <input type="text" id="company" name="company" class="form-input" placeholder="Your company name">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="subject" class="form-label">Subject *</label>
+                                <select id="subject" name="subject" class="form-select" required aria-required="true" aria-describedby="subject-error">
+                                    <option value="">Select a subject</option>
+                                    <option value="general">General Inquiry</option>
+                                    <option value="sales">Sales Information</option>
+                                    <option value="support">Technical Support</option>
+                                    <option value="partnership">Partnership Opportunities</option>
+                                    <option value="careers">Career Opportunities</option>
+                                    <option value="other">Other</option>
+                                </select>
+                                <span class="form-error" id="subject-error"></span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message" class="form-label">Message *</label>
+                                <textarea id="message" name="message" class="form-textarea" rows="5" required aria-required="true" aria-describedby="message-error" placeholder="Tell us about your project or inquiry..."></textarea>
+                                <span class="form-error" id="message-error"></span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="budget" class="form-label">Project Budget (Optional)</label>
+                                <select id="budget" name="budget" class="form-select">
+                                    <option value="">Select budget range</option>
+                                    <option value="under-10k">Under $10,000</option>
+                                    <option value="10k-25k">$10,000 - $25,000</option>
+                                    <option value="25k-50k">$25,000 - $50,000</option>
+                                    <option value="50k-100k">$50,000 - $100,000</option>
+                                    <option value="over-100k">Over $100,000</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="newsletter" name="newsletter" class="form-checkbox">
+                                    <label for="newsletter" class="checkbox-label">I'd like to receive updates about InnovateTech's services and insights</label>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="privacy" name="privacy" class="form-checkbox" required aria-required="true">
+                                    <label for="privacy" class="checkbox-label">I agree to the <a href="#privacy-policy" class="link">Privacy Policy</a> and consent to being contacted regarding my inquiry *</label>
+                                </div>
+                            </div>
+                            
+                            <!-- reCAPTCHA -->
+                            <div class="form-group">
+                                <div class="recaptcha-container">
+                                    <div class="recaptcha-placeholder">
+                                        <i class="fas fa-shield-alt"></i>
+                                        <span>reCAPTCHA protection</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary btn-large">
+                                    <i class="fas fa-paper-plane"></i>
+                                    Send Message
+                                </button>
+                                <button type="reset" class="btn btn-outline">
+                                    <i class="fas fa-redo"></i>
+                                    Reset Form
+                                </button>
+                            </div>
+                        </form>
+                        
+                        <!-- Form Messages -->
+                        <div class="form-message success" id="successMessage" style="display: none;">
+                            <i class="fas fa-check-circle"></i>
+                            <h3>Message Sent Successfully!</h3>
+                            <p>Thank you for contacting us. We'll get back to you within 24 hours.</p>
+                        </div>
+                        
+                        <div class="form-message error" id="errorMessage" style="display: none;">
+                            <i class="fas fa-exclamation-circle"></i>
+                            <h3>Oops! Something went wrong.</h3>
+                            <p>Please check your form fields and try again, or contact us directly.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Map Section -->
+                    <div class="map-section" id="map-section">
+                        <div class="section-header">
+                            <h2 class="section-title">Visit Our Office</h2>
+                            <p class="section-subtitle">Find us at our convenient location in the heart of San Francisco's tech district</p>
+                        </div>
+                        
+                        <div class="map-container">
+                            <div id="googleMap" class="google-map"></div>
+                            <div class="map-overlay">
+                                <div class="map-info">
+                                    <h3>InnovateTech Solutions</h3>
+                                    <p>123 Tech Street, Suite 100<br>San Francisco, CA 94105</p>
+                                    <div class="map-actions">
+                                        <a href="https://maps.google.com/?q=123+Tech+Street+San+Francisco+CA+94105" target="_blank" class="btn btn-primary btn-small">
+                                            <i class="fas fa-directions"></i>
+                                            Get Directions
+                                        </a>
+                                        <a href="tel:+1234567890" class="btn btn-outline btn-small">
+                                            <i class="fas fa-phone"></i>
+                                            Call Office
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Location Details -->
+                        <div class="location-details">
+                            <div class="location-info">
+                                <h4>Office Hours</h4>
+                                <ul class="hours-list">
+                                    <li><span>Monday - Friday:</span> <span>9:00 AM - 6:00 PM</span></li>
+                                    <li><span>Saturday:</span> <span>10:00 AM - 2:00 PM</span></li>
+                                    <li><span>Sunday:</span> <span>Closed</span></li>
+                                </ul>
+                            </div>
+                            
+                            <div class="location-info">
+                                <h4>Parking & Access</h4>
+                                <ul class="access-list">
+                                    <li><i class="fas fa-car"></i> Free parking available on-site</li>
+                                    <li><i class="fas fa-wheelchair"></i> Wheelchair accessible</li>
+                                    <li><i class="fas fa-train"></i> 2 blocks from Montgomery Station</li>
+                                    <li><i class="fas fa-bus"></i> Multiple bus lines nearby</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Department Contacts Section -->
+        <section class="department-contacts">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Department Contacts</h2>
+                    <p class="section-subtitle">Reach out to the right department for faster assistance</p>
+                </div>
+                
+                <div class="departments-grid">
+                    <div class="department-card">
+                        <div class="department-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3>Sales Team</h3>
+                        <p>Interested in our services? Get personalized recommendations and pricing.</p>
+                        <div class="department-contact">
+                            <a href="mailto:sales@innovatech.com">sales@innovatech.com</a><br>
+                            <a href="tel:+1234567891">+1 (234) 567-8910</a>
+                        </div>
+                    </div>
+                    
+                    <div class="department-card">
+                        <div class="department-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h3>Technical Support</h3>
+                        <p>Need help with existing services? Our support team is here to assist.</p>
+                        <div class="department-contact">
+                            <a href="mailto:support@innovatech.com">support@innovatech.com</a><br>
+                            <a href="tel:+1234567892">+1 (234) 567-8920</a>
+                        </div>
+                    </div>
+                    
+                    <div class="department-card">
+                        <div class="department-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Partnerships</h3>
+                        <p>Interested in partnering with us? Let's explore collaboration opportunities.</p>
+                        <div class="department-contact">
+                            <a href="mailto:partnerships@innovatech.com">partnerships@innovatech.com</a><br>
+                            <a href="tel:+1234567893">+1 (234) 567-8930</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="contact-faq">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Frequently Asked Questions</h2>
+                    <p class="section-subtitle">Quick answers to common questions about our services and contact process</p>
+                </div>
+                
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>What is your typical response time for inquiries?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>We typically respond to all inquiries within 24 hours during business days. For urgent technical support issues, our dedicated support line offers faster response times.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>Do you offer free consultations?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Yes! We offer a complimentary 30-minute consultation to discuss your project requirements and how we can help achieve your business goals.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>What areas do you serve?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>While our main office is in San Francisco, we serve clients globally. We offer remote services worldwide and can arrange on-site consultations for clients in the Bay Area.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>Can I schedule a visit to your office?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Absolutely! We welcome visitors during our office hours. We recommend scheduling an appointment in advance to ensure the right team members are available to meet with you.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trust Elements Section -->
+        <section class="trust-elements">
+            <div class="container">
+                <div class="trust-grid">
+                    <div class="trust-item">
+                        <div class="trust-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3>24-Hour Response</h3>
+                        <p>We guarantee response to all inquiries within 24 business hours</p>
+                    </div>
+                    
+                    <div class="trust-item">
+                        <div class="trust-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Secure & Private</h3>
+                        <p>Your data is protected with enterprise-grade security measures</p>
+                    </div>
+                    
+                    <div class="trust-item">
+                        <div class="trust-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h3>Expert Team</h3>
+                        <p>Certified professionals with years of industry experience</p>
+                    </div>
+                    
+                    <div class="trust-item">
+                        <div class="trust-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h3>Global Support</h3>
+                        <p>Serving clients worldwide with localized expertise</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Social Media Section -->
+        <section class="social-contact">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Connect With Us</h2>
+                    <p class="section-subtitle">Follow us on social media for updates, insights, and industry news</p>
+                </div>
+                
+                <div class="social-links">
+                    <a href="#" class="social-link" aria-label="Facebook">
+                        <i class="fab fa-facebook"></i>
+                        <span>Facebook</span>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                        <span>Twitter</span>
+                    </a>
+                    <a href="#" class="social-link" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                        <span>Instagram</span>
+                    </a>
+                    <a href="#" class="social-link" aria-label="YouTube">
+                        <i class="fab fa-youtube"></i>
+                        <span>YouTube</span>
+                    </a>
+                </div>
+            </div>
         </section>
     </main>
     

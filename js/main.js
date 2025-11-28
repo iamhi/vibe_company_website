@@ -15,6 +15,9 @@ document.addEventListener('DOMContentLoaded', function() {
     initSearchFunctionality();
     initAccessibilityFeatures();
     initServiceFilter();
+    initContactForm();
+    initFAQ();
+    initMap();
 });
 
 /**
@@ -635,3 +638,292 @@ window.NavigationSystem = {
 window.ServiceSystem = {
     initServiceFilter
 };
+
+/**
+ * Initialize Contact Form
+ */
+function initContactForm() {
+    const contactForm = document.getElementById('contactForm');
+    const successMessage = document.getElementById('successMessage');
+    const errorMessage = document.getElementById('errorMessage');
+    
+    if (!contactForm) return;
+    
+    // Add real-time validation
+    const formInputs = contactForm.querySelectorAll('.form-input, .form-select, .form-textarea');
+    formInputs.forEach(input => {
+        input.addEventListener('blur', () => validateField(input));
+        input.addEventListener('input', () => clearFieldError(input));
+    });
+    
+    // Handle form submission
+    contactForm.addEventListener('submit', handleFormSubmit);
+    
+    // Handle form reset
+    contactForm.addEventListener('reset', handleFormReset);
+}
+
+/**
+ * Validate individual field
+ */
+function validateField(field) {
+    const fieldName = field.name;
+    const fieldValue = field.value.trim();
+    const errorElement = document.getElementById(`${fieldName}-error`);
+    
+    // Clear previous error
+    clearFieldError(field);
+    
+    // Required field validation
+    if (field.hasAttribute('required') && !fieldValue) {
+        showFieldError(field, 'This field is required');
+        return false;
+    }
+    
+    // Email validation
+    if (field.type === 'email' && fieldValue) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(fieldValue)) {
+            showFieldError(field, 'Please enter a valid email address');
+            return false;
+        }
+    }
+    
+    // Phone validation
+    if (field.type === 'tel' && fieldValue) {
+        const phoneRegex = /^[\d\s\-\+\(\)]+$/;
+        if (!phoneRegex.test(fieldValue)) {
+            showFieldError(field, 'Please enter a valid phone number');
+            return false;
+        }
+    }
+    
+    // Message length validation
+    if (fieldName === 'message' && fieldValue) {
+        if (fieldValue.length < 10) {
+            showFieldError(field, 'Message must be at least 10 characters long');
+            return false;
+        }
+        if (fieldValue.length > 1000) {
+            showFieldError(field, 'Message must be less than 1000 characters');
+            return false;
+        }
+    }
+    
+    return true;
+}
+
+/**
+ * Show field error
+ */
+function showFieldError(field, message) {
+    const fieldName = field.name;
+    const errorElement = document.getElementById(`${fieldName}-error`);
+    
+    field.classList.add('error');
+    if (errorElement) {
+        errorElement.textContent = message;
+    }
+}
+
+/**
+ * Clear field error
+ */
+function clearFieldError(field) {
+    const fieldName = field.name;
+    const errorElement = document.getElementById(`${fieldName}-error`);
+    
+    field.classList.remove('error');
+    if (errorElement) {
+        errorElement.textContent = '';
+    }
+}
+
+/**
+ * Handle form submission
+ */
+function handleFormSubmit(e) {
+    e.preventDefault();
+    
+    const contactForm = e.target;
+    const successMessage = document.getElementById('successMessage');
+    const errorMessage = document.getElementById('errorMessage');
+    
+    // Validate all fields
+    const formInputs = contactForm.querySelectorAll('.form-input, .form-select, .form-textarea');
+    let isValid = true;
+    
+    formInputs.forEach(input => {
+        if (!validateField(input)) {
+            isValid = false;
+        }
+    });
+    
+    if (!isValid) {
+        // Focus first error field
+        const firstError = contactForm.querySelector('.error');
+        if (firstError) {
+            firstError.focus();
+        }
+        return;
+    }
+    
+    // Simulate form submission (replace with actual implementation)
+    const formData = new FormData(contactForm);
+    const submitButton = contactForm.querySelector('button[type="submit"]');
+    const originalText = submitButton.innerHTML;
+    
+    // Show loading state
+    submitButton.disabled = true;
+    submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+    
+    // Simulate API call
+    setTimeout(() => {
+        // Hide form and show success message
+        contactForm.style.display = 'none';
+        successMessage.style.display = 'block';
+        errorMessage.style.display = 'none';
+        
+        // Reset button
+        submitButton.disabled = false;
+        submitButton.innerHTML = originalText;
+        
+        // Scroll to success message
+        successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        
+        // Log form data (replace with actual submission)
+        console.log('Form submitted with data:', Object.fromEntries(formData));
+        
+        // Reset form after delay
+        setTimeout(() => {
+            contactForm.reset();
+            contactForm.style.display = 'block';
+            successMessage.style.display = 'none';
+        }, 5000);
+        
+    }, 2000);
+}
+
+/**
+ * Handle form reset
+ */
+function handleFormReset(e) {
+    const contactForm = e.target;
+    const formInputs = contactForm.querySelectorAll('.form-input, .form-select, .form-textarea');
+    
+    // Clear all errors
+    formInputs.forEach(input => {
+        clearFieldError(input);
+    });
+    
+    // Hide messages
+    const successMessage = document.getElementById('successMessage');
+    const errorMessage = document.getElementById('errorMessage');
+    if (successMessage) successMessage.style.display = 'none';
+    if (errorMessage) errorMessage.style.display = 'none';
+}
+
+/**
+ * Initialize FAQ Accordion
+ */
+function initFAQ() {
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    if (faqItems.length === 0) return;
+    
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        const answer = item.querySelector('.faq-answer');
+        
+        if (question && answer) {
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                
+                // Close all other items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                        otherItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+                    }
+                });
+                
+                // Toggle current item
+                if (isActive) {
+                    item.classList.remove('active');
+                    question.setAttribute('aria-expanded', 'false');
+                } else {
+                    item.classList.add('active');
+                    question.setAttribute('aria-expanded', 'true');
+                }
+            });
+        }
+    });
+}
+
+/**
+ * Initialize Google Map
+ */
+function initMap() {
+    const mapElement = document.getElementById('googleMap');
+    
+    if (!mapElement) return;
+    
+    // Check if Google Maps API is loaded
+    if (typeof google === 'undefined' || typeof google.maps === 'undefined') {
+        // Fallback: show static map image
+        mapElement.innerHTML = `
+            <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #f1f5f9, #e2e8f0); display: flex; align-items: center; justify-content: center; flex-direction: column; color: #64748b;">
+                <i class="fas fa-map-marked-alt" style="font-size: 3rem; margin-bottom: 1rem;"></i>
+                <p style="text-align: center; padding: 0 2rem;">Interactive Map</p>
+                <p style="font-size: 0.875rem; text-align: center; padding: 0 2rem;">123 Tech Street, San Francisco, CA 94105</p>
+            </div>
+        `;
+        return;
+    }
+    
+    // Initialize Google Map
+    const companyLocation = { lat: 37.7749, lng: -122.4194 }; // San Francisco coordinates
+    
+    const map = new google.maps.Map(mapElement, {
+        zoom: 15,
+        center: companyLocation,
+        styles: [
+            {
+                featureType: "all",
+                elementType: "geometry",
+                stylers: [{ color: "#f5f5f5" }]
+            },
+            {
+                featureType: "water",
+                elementType: "geometry",
+                stylers: [{ color: "#c9e2f7" }]
+            }
+        ]
+    });
+    
+    // Add marker
+    const marker = new google.maps.Marker({
+        position: companyLocation,
+        map: map,
+        title: "InnovateTech Solutions",
+        animation: google.maps.Animation.DROP
+    });
+    
+    // Add info window
+    const infoWindow = new google.maps.InfoWindow({
+        content: `
+            <div style="padding: 10px; max-width: 200px;">
+                <h3 style="margin: 0 0 10px 0; color: #2563eb;">InnovateTech Solutions</h3>
+                <p style="margin: 0 0 10px 0; color: #64748b;">123 Tech Street, Suite 100<br>San Francisco, CA 94105</p>
+                <a href="tel:+1234567890" style="color: #2563eb; text-decoration: none;">+1 (234) 567-8900</a>
+            </div>
+        `
+    });
+    
+    marker.addListener('click', () => {
+        infoWindow.open(map, marker);
+    });
+}
+
+// Make initMap globally available for Google Maps callback
+window.initMap = initMap;
