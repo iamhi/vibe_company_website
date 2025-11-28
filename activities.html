@@ -3,8 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services - InnovateTech Solutions</title>
-    <meta name="description" content="Discover InnovateTech Solutions' comprehensive services including web development, mobile solutions, cloud services, and digital consulting.">
+    <title>Services - InnovateTech Solutions | Web Development, Mobile Apps, Cloud Services</title>
+    <meta name="description" content="Discover InnovateTech Solutions' comprehensive services including web development, mobile solutions, cloud services, and digital consulting. Transform your business with cutting-edge technology solutions.">
+    <meta name="keywords" content="web development, mobile app development, cloud services, digital consulting, software development, IT solutions, business transformation, technology consulting">
+    <meta name="author" content="InnovateTech Solutions">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Services - InnovateTech Solutions | Web Development, Mobile Apps, Cloud Services">
+    <meta property="og:description" content="Transform your business with our comprehensive technology services including web development, mobile solutions, cloud services, and digital consulting.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://innovatech.com/activities.html">
+    <meta property="og:image" content="https://innovatech.com/images/services-og.jpg">
+    <meta property="og:site_name" content="InnovateTech Solutions">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Services - InnovateTech Solutions">
+    <meta name="twitter:description" content="Transform your business with our comprehensive technology services.">
+    <meta name="twitter:image" content="https://innovatech.com/images/services-twitter.jpg">
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+    <link rel="canonical" href="https://innovatech.com/activities.html">
+    
+    <!-- Structured Data for Services -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "InnovateTech Solutions",
+        "description": "Comprehensive technology services including web development, mobile solutions, cloud services, and digital consulting",
+        "url": "https://innovatech.com",
+        "telephone": "+1-234-567-8900",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "123 Tech Street",
+            "addressLocality": "San Francisco",
+            "addressRegion": "CA",
+            "postalCode": "94105",
+            "addressCountry": "US"
+        },
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Technology Services",
+            "itemListElement": [
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Web Development",
+                        "description": "Custom web applications built with modern technologies"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Mobile Solutions",
+                        "description": "Native and cross-platform mobile applications"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Cloud Services",
+                        "description": "Scalable cloud infrastructure and migration solutions"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Digital Consulting",
+                        "description": "Strategic digital transformation and technology consulting"
+                    }
+                }
+            ]
+        }
+    }
+    </script>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -117,20 +197,355 @@
     </header>
     
     <main>
-        <!-- Main content for activities page will go here -->
-        <section id="services-overview">
-            <h1>Our Activities & Services</h1>
-            <p>Discover the comprehensive range of services we offer to help your business thrive.</p>
+        <!-- Hero Section -->
+        <section class="hero hero-services">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Our Services & Solutions</h1>
+                    <p class="hero-subtitle">Transform your business with our comprehensive range of cutting-edge technology services and innovative solutions.</p>
+                    <div class="hero-cta">
+                        <a href="#service-categories" class="btn btn-primary btn-large">Explore Services</a>
+                        <a href="contact.html" class="btn btn-outline btn-large">Get Free Consultation</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-graphic">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                </div>
+            </div>
         </section>
-        
-        <section id="service-categories">
-            <h2>Service Categories</h2>
-            <p>We specialize in various areas to meet your diverse needs.</p>
+
+        <!-- Service Filter -->
+        <section class="service-filter-section">
+            <div class="container">
+                <div class="filter-controls">
+                    <button class="filter-btn active" data-filter="all">All Services</button>
+                    <button class="filter-btn" data-filter="development">Development</button>
+                    <button class="filter-btn" data-filter="consulting">Consulting</button>
+                    <button class="filter-btn" data-filter="cloud">Cloud Services</button>
+                    <button class="filter-btn" data-filter="mobile">Mobile</button>
+                </div>
+            </div>
         </section>
-        
-        <section id="process">
-            <h2>Our Process</h2>
-            <p>Learn how we deliver exceptional results through our proven methodology.</p>
+
+        <!-- Service Categories -->
+        <section id="service-categories" class="service-categories">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Our Service Categories</h2>
+                    <p class="section-subtitle">Comprehensive solutions tailored to your business needs</p>
+                </div>
+                
+                <div class="services-grid">
+                    <!-- Web Development Service -->
+                    <div class="service-card" data-category="development">
+                        <div class="service-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3 class="service-title">Web Development</h3>
+                            <p class="service-description">Custom web applications built with modern technologies and best practices.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> Responsive Design</li>
+                                <li><i class="fas fa-check"></i> E-commerce Solutions</li>
+                                <li><i class="fas fa-check"></i> Progressive Web Apps</li>
+                                <li><i class="fas fa-check"></i> API Integration</li>
+                            </ul>
+                            <div class="service-cta">
+                                <a href="#web-development" class="btn btn-primary">Learn More</a>
+                                <a href="contact.html" class="btn btn-outline">Get Quote</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mobile Solutions Service -->
+                    <div class="service-card" data-category="mobile">
+                        <div class="service-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3 class="service-title">Mobile Solutions</h3>
+                            <p class="service-description">Native and cross-platform mobile applications for iOS and Android.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> iOS & Android Apps</li>
+                                <li><i class="fas fa-check"></i> React Native Development</li>
+                                <li><i class="fas fa-check"></i> App Store Optimization</li>
+                                <li><i class="fas fa-check"></i> Maintenance & Support</li>
+                            </ul>
+                            <div class="service-cta">
+                                <a href="#mobile-solutions" class="btn btn-primary">Learn More</a>
+                                <a href="contact.html" class="btn btn-outline">Get Quote</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cloud Services -->
+                    <div class="service-card" data-category="cloud">
+                        <div class="service-icon">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3 class="service-title">Cloud Services</h3>
+                            <p class="service-description">Scalable cloud infrastructure and migration solutions.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> Cloud Migration</li>
+                                <li><i class="fas fa-check"></i> AWS & Azure Setup</li>
+                                <li><i class="fas fa-check"></i> DevOps Implementation</li>
+                                <li><i class="fas fa-check"></i> Cloud Security</li>
+                            </ul>
+                            <div class="service-cta">
+                                <a href="#cloud-services" class="btn btn-primary">Learn More</a>
+                                <a href="contact.html" class="btn btn-outline">Get Quote</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Digital Consulting -->
+                    <div class="service-card" data-category="consulting">
+                        <div class="service-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3 class="service-title">Digital Consulting</h3>
+                            <p class="service-description">Strategic digital transformation and technology consulting.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> Digital Strategy</li>
+                                <li><i class="fas fa-check"></i> Process Optimization</li>
+                                <li><i class="fas fa-check"></i> Technology Roadmap</li>
+                                <li><i class="fas fa-check"></i> Change Management</li>
+                            </ul>
+                            <div class="service-cta">
+                                <a href="#digital-consulting" class="btn btn-primary">Learn More</a>
+                                <a href="contact.html" class="btn btn-outline">Get Quote</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Detailed Service Sections -->
+        <section id="web-development" class="service-detail">
+            <div class="container">
+                <div class="service-detail-header">
+                    <h2>Web Development Services</h2>
+                    <p>Building powerful, scalable web applications that drive business growth</p>
+                </div>
+                
+                <div class="service-detail-content">
+                    <div class="service-detail-info">
+                        <h3>Comprehensive Web Solutions</h3>
+                        <p>Our web development services cover everything from simple landing pages to complex enterprise applications. We use cutting-edge technologies and follow industry best practices to deliver solutions that are not only visually appealing but also highly functional and scalable.</p>
+                        
+                        <div class="service-features-grid">
+                            <div class="feature-item">
+                                <i class="fas fa-palette"></i>
+                                <h4>Custom Design</h4>
+                                <p>Unique, brand-aligned designs that capture your essence and engage your audience.</p>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-mobile-alt"></i>
+                                <h4>Responsive Development</h4>
+                                <p>Seamless experience across all devices with mobile-first approach.</p>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-tachometer-alt"></i>
+                                <h4>Performance Optimization</h4>
+                                <p>Lightning-fast load times and smooth user interactions.</p>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-shield-alt"></i>
+                                <h4>Security First</h4>
+                                <p>Robust security measures to protect your data and users.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="service-process">
+                        <h3>Our Development Process</h3>
+                        <div class="process-timeline">
+                            <div class="process-step">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h4>Discovery & Planning</h4>
+                                    <p>Understanding your requirements and creating a detailed project roadmap.</p>
+                                </div>
+                            </div>
+                            <div class="process-step">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h4>Design & Prototyping</h4>
+                                    <p>Creating wireframes and visual designs for your approval.</p>
+                                </div>
+                            </div>
+                            <div class="process-step">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h4>Development & Testing</h4>
+                                    <p>Building the application with rigorous quality assurance.</p>
+                                </div>
+                            </div>
+                            <div class="process-step">
+                                <div class="step-number">4</div>
+                                <div class="step-content">
+                                    <h4>Deployment & Support</h4>
+                                    <p>Launching your application and providing ongoing maintenance.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-pricing">
+                    <h3>Pricing Packages</h3>
+                    <div class="pricing-cards">
+                        <div class="pricing-card">
+                            <h4>Starter</h4>
+                            <div class="price">$2,999</div>
+                            <ul>
+                                <li>5-Page Website</li>
+                                <li>Responsive Design</li>
+                                <li>Basic SEO</li>
+                                <li>1 Month Support</li>
+                            </ul>
+                            <a href="contact.html" class="btn btn-outline">Get Started</a>
+                        </div>
+                        <div class="pricing-card featured">
+                            <h4>Professional</h4>
+                            <div class="price">$7,999</div>
+                            <ul>
+                                <li>Custom Web Application</li>
+                                <li>Advanced Features</li>
+                                <li>Database Integration</li>
+                                <li>3 Months Support</li>
+                            </ul>
+                            <a href="contact.html" class="btn btn-primary">Get Started</a>
+                        </div>
+                        <div class="pricing-card">
+                            <h4>Enterprise</h4>
+                            <div class="price">Custom</div>
+                            <ul>
+                                <li>Complex Solutions</li>
+                                <li>API Integration</li>
+                                <li>Advanced Security</li>
+                                <li>6+ Months Support</li>
+                            </ul>
+                            <a href="contact.html" class="btn btn-outline">Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Case Studies Section -->
+        <section class="case-studies">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Success Stories</h2>
+                    <p class="section-subtitle">Real results from real clients</p>
+                </div>
+                
+                <div class="case-studies-grid">
+                    <div class="case-study-card">
+                        <div class="case-study-image">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="case-study-content">
+                            <h3>E-commerce Platform Redesign</h3>
+                            <p class="case-client">RetailTech Solutions</p>
+                            <p class="case-description">Complete redesign of their e-commerce platform resulting in 45% increase in conversions.</p>
+                            <div class="case-results">
+                                <div class="result-item">
+                                    <span class="result-number">45%</span>
+                                    <span class="result-label">Conversion Increase</span>
+                                </div>
+                                <div class="result-item">
+                                    <span class="result-number">60%</span>
+                                    <span class="result-label">Load Time Improvement</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="case-study-card">
+                        <div class="case-study-image">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <div class="case-study-content">
+                            <h3>Mobile App Development</h3>
+                            <p class="case-client">HealthPlus Medical</p>
+                            <p class="case-description">Developed a patient management mobile app serving 10,000+ users.</p>
+                            <div class="case-results">
+                                <div class="result-item">
+                                    <span class="result-number">10K+</span>
+                                    <span class="result-label">Active Users</span>
+                                </div>
+                                <div class="result-item">
+                                    <span class="result-number">4.8</span>
+                                    <span class="result-label">App Rating</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Client Testimonials</h2>
+                    <p class="section-subtitle">What our clients say about our services</p>
+                </div>
+                
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>"InnovateTech transformed our online presence completely. Their attention to detail and technical expertise exceeded our expectations."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="author-info">
+                                <h4>Sarah Johnson</h4>
+                                <p>CEO, TechStart Inc.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>"The mobile app they developed for us has revolutionized how we serve our customers. Highly recommended!"</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="author-info">
+                                <h4>Michael Chen</h4>
+                                <p>CTO, HealthPlus Medical</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Ready to Transform Your Business?</h2>
+                    <p>Let's discuss how our services can help you achieve your goals</p>
+                    <div class="cta-buttons">
+                        <a href="contact.html" class="btn btn-primary btn-large">Get Started Now</a>
+                        <a href="tel:+1234567890" class="btn btn-outline btn-large">Call Us Today</a>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
     

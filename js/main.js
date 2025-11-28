@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initMobileMenu();
     initSearchFunctionality();
     initAccessibilityFeatures();
+    initServiceFilter();
 });
 
 /**
@@ -539,6 +540,89 @@ window.addEventListener('scroll', () => {
     lastScrollTop = scrollTop;
 });
 
+/**
+ * Initialize Service Filter
+ */
+function initServiceFilter() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const serviceCards = document.querySelectorAll('.service-card');
+    
+    if (filterButtons.length === 0 || serviceCards.length === 0) {
+        return; // Exit if service filter elements don't exist
+    }
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const filter = button.getAttribute('data-filter');
+            
+            // Update active button
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            
+            // Filter service cards
+            serviceCards.forEach(card => {
+                const category = card.getAttribute('data-category');
+                
+                if (filter === 'all' || category === filter) {
+                    card.style.display = 'block';
+                    // Add animation
+                    card.style.animation = 'fadeInUp 0.5s ease forwards';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+            
+            // Update URL hash for bookmarking
+            if (filter !== 'all') {
+                window.history.replaceState(null, '', `#filter-${filter}`);
+            } else {
+                window.history.replaceState(null, '', window.location.pathname);
+            }
+        });
+    });
+    
+    // Check for filter in URL hash on page load
+    const hashFilter = window.location.hash.replace('#filter-', '');
+    if (hashFilter) {
+        const targetButton = document.querySelector(`[data-filter="${hashFilter}"]`);
+        if (targetButton) {
+            targetButton.click();
+        }
+    }
+}
+
+/**
+ * Add CSS animation keyframes dynamically
+ */
+function addServiceAnimations() {
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(5deg);
+            }
+        }
+    `;
+    document.head.appendChild(style);
+}
+
+// Add animations on page load
+addServiceAnimations();
+
 // Export functions for potential use in other scripts
 window.NavigationSystem = {
     toggleMobileMenu,
@@ -546,4 +630,8 @@ window.NavigationSystem = {
     openMobileMenu,
     smoothScrollTo,
     setActiveNavigation
+};
+
+window.ServiceSystem = {
+    initServiceFilter
 };
