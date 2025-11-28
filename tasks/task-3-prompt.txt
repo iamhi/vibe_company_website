@@ -1,0 +1,66 @@
+# Task 3: Build home page with hero section and company overview
+
+## Objective
+Create an impressive and engaging home page that serves as the main entry point for the company showcase website, featuring a compelling hero section and comprehensive company overview.
+
+## Requirements
+
+### 1. Hero Section
+- **Full-width hero area** with background image or gradient
+- **Company tagline** that clearly communicates the value proposition
+- **Compelling headline** that grabs visitor attention
+- **Call-to-action buttons** (2-3 primary actions like "Learn More", "Contact Us", "View Services")
+- **Scroll indicator** to encourage users to explore more content
+- **Responsive design** that works on all screen sizes
+
+### 2. Company Overview Section
+- **Brief company introduction** (2-3 paragraphs explaining what the company does)
+- **Key statistics or achievements** (years in business, clients served, etc.)
+- **Company mission statement** or core values
+- **Professional imagery** that represents the company brand
+- **Clear value proposition** explaining why visitors should choose this company
+
+### 3. Featured Services/Activities Preview
+- **Showcase 3-4 main services** or activities with brief descriptions
+- **Service cards** with icons, titles, and short descriptions
+- **"View All Services" button** linking to the activities page
+- **Visual hierarchy** that guides users to important information
+
+### 4. Trust Indicators Section
+- **Client testimonials** or reviews (2-3 short quotes)
+- **Company logos** of clients/partners (if available)
+- **Awards or certifications** display
+- **Social proof elements** to build credibility
+
+### 5. Content Structure and Layout
+- Use semantic HTML5 elements appropriately
+- Implement proper heading hierarchy (h1, h2, h3)
+- Create visual sections with clear separation
+- Ensure content flows logically from top to bottom
+- Add white space for readability and visual appeal
+
+### 6. Interactive Elements
+- **Smooth scrolling** navigation to different sections
+- **Hover effects** on buttons and cards
+- **Animated elements** (fade-in on scroll, parallax effects if appropriate)
+- **Responsive image handling** with proper sizing and optimization
+
+### 7. Mobile Optimization
+- **Mobile-first design** approach
+- **Touch-friendly buttons** and interactive elements
+- **Readable text sizes** on small screens
+- **Optimized images** for faster mobile loading
+- **Simplified layout** for mobile devices
+
+### 8. SEO and Performance
+- **Proper heading structure** for search engines
+- **Alt text** for all images
+- **Meta description** for the home page
+- **Fast loading** with optimized assets
+- **Semantic HTML** for better accessibility
+
+## Expected Outcome
+A professionally designed home page that effectively introduces the company, engages visitors, and encourages them to explore other pages. The page should be visually appealing, user-friendly, and optimized for both desktop and mobile devices.
+
+## Next Steps
+After completing this task, the home page will serve as a template for styling other pages and implementing the navigation system in Task 4.

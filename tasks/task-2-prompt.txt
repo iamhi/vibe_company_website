@@ -1,0 +1,66 @@
+# Task 2: Create responsive CSS framework and design system
+
+## Objective
+Develop a comprehensive CSS framework and design system that provides consistent styling, responsive layout, and reusable components for the company showcase website.
+
+## Requirements
+
+### 1. Main Stylesheet Setup
+- Create `css/style.css` as the main stylesheet
+- Set up CSS reset or normalize for cross-browser consistency
+- Configure CSS variables for design tokens
+- Implement mobile-first responsive approach
+
+### 2. Design System Variables
+Define CSS custom properties for:
+- **Colors**: Primary, secondary, accent, text, background, border colors
+- **Typography**: Font families, sizes, weights, line heights
+- **Spacing**: Margin and padding scales (e.g., 0.5rem, 1rem, 1.5rem, 2rem, etc.)
+- **Breakpoints**: Mobile, tablet, desktop screen sizes
+- **Shadows**: Box shadows for cards, buttons, hover effects
+- **Border radius**: Consistent corner rounding for elements
+
+### 3. Responsive Grid System
+- Create flexible grid system using CSS Grid or Flexbox
+- Define container classes with max-width and centered alignment
+- Implement responsive column layouts (1-12 columns)
+- Add spacing utilities (margin, padding classes)
+- Create responsive utilities for different screen sizes
+
+### 4. Typography System
+- Define font hierarchy (h1-h6, paragraph, small text)
+- Set up responsive font sizes using clamp() or media queries
+- Create text utility classes (alignment, weight, color, size)
+- Implement proper line spacing and readability
+
+### 5. Component Styles
+Create reusable component styles for:
+- **Buttons**: Primary, secondary, outline variants with hover states
+- **Cards**: Content containers with shadows and padding
+- **Navigation**: Menu styling for desktop and mobile
+- **Forms**: Input fields, labels, buttons, validation states
+- **Images**: Responsive image containers and figure captions
+
+### 6. Responsive Design Implementation
+- Mobile-first approach with progressive enhancement
+- Breakpoint definitions for tablet (~768px) and desktop (~1024px)
+- Flexible layouts that adapt to different screen sizes
+- Touch-friendly interface elements for mobile devices
+
+### 7. Utility Classes
+- Spacing utilities (m-0, p-4, mt-2, etc.)
+- Display utilities (d-none, d-block, d-flex, etc.)
+- Text utilities (text-center, text-bold, etc.)
+- Color utilities (bg-primary, text-white, etc.)
+
+### 8. Accessibility Considerations
+- Ensure sufficient color contrast ratios
+- Implement focus states for interactive elements
+- Use relative units for scalability
+- Add hover and active states for better user feedback
+
+## Expected Outcome
+A comprehensive CSS framework that provides consistent styling, responsive layouts, and reusable components. The system should be well-documented with clear naming conventions and easy to maintain.
+
+## Next Steps
+After completing this task, the website will have a solid design foundation ready for implementing specific page layouts and content in subsequent tasks.

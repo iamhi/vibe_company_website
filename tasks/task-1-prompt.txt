@@ -1,0 +1,53 @@
+# Task 1: Set up project structure and basic HTML files for all pages
+
+## Objective
+Create the foundational project structure and basic HTML files for a company showcase website with 5 pages: home, about us, activities, contact/location, and gallery.
+
+## Requirements
+
+### 1. Project Structure
+- Create a main project folder (e.g., "company-website")
+- Organize the following subfolders:
+  - `css/` - for stylesheet files
+  - `js/` - for JavaScript files
+  - `images/` - for website images and assets
+  - `pages/` - for additional HTML pages (optional)
+
+### 2. HTML Files to Create
+- `index.html` - Main home page
+- `about.html` - About us page
+- `activities.html` - Company activities/services page
+- `contact.html` - Contact and location page
+- `gallery.html` - Image gallery page
+
+### 3. Basic HTML Structure for Each Page
+Each HTML file should include:
+- HTML5 doctype declaration
+- Proper head section with:
+  - UTF-8 charset
+  - Viewport meta tag for responsiveness
+  - Page title
+  - Link to future CSS file
+- Basic body structure with semantic HTML5 elements:
+  - `<header>` - for navigation and logo
+  - `<main>` - for main content
+  - `<footer>` - for footer information
+
+### 4. Initial Content
+- Add placeholder content to identify each page
+- Include basic navigation structure (links to all pages)
+- Add semantic HTML5 tags for better structure
+- Include comments for future development
+
+### 5. Best Practices to Follow
+- Use semantic HTML5 elements appropriately
+- Ensure proper indentation and code formatting
+- Add meaningful comments for future developers
+- Use consistent naming conventions
+- Make the structure scalable for future additions
+
+## Expected Outcome
+A well-organized project folder with all 5 HTML files created, each containing a basic HTML5 structure ready for styling and content development. The files should be properly linked and follow web development best practices.
+
+## Next Steps
+After completing this task, the project will be ready for Task 2: Creating the responsive CSS framework and design system.
