@@ -3,8 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery - InnovateTech Solutions</title>
-    <meta name="description" content="Explore InnovateTech Solutions' gallery showcasing our projects, team, and work environment. See the quality we deliver.">
+    <title>Gallery - InnovateTech Solutions | Projects, Team & Work Showcase</title>
+    <meta name="description" content="Explore InnovateTech Solutions' gallery showcasing our projects, team, events, and work environment. See the quality and innovation we deliver through our visual portfolio.">
+    <meta name="keywords" content="gallery, portfolio, projects, team, web development, mobile apps, cloud services, technology showcase, work samples">
+    <meta name="author" content="InnovateTech Solutions">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Gallery - InnovateTech Solutions">
+    <meta property="og:description" content="Explore our gallery showcasing projects, team, and work environment.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://innovatech.com/gallery.html">
+    <meta property="og:image" content="https://innovatech.com/images/gallery-og.jpg">
+    <meta property="og:site_name" content="InnovateTech Solutions">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Gallery - InnovateTech Solutions">
+    <meta name="twitter:description" content="Explore our gallery showcasing projects, team, and work environment.">
+    <meta name="twitter:image" content="https://innovatech.com/images/gallery-twitter.jpg">
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://innovatech.com/gallery.html">
+    
+    <!-- Structured Data for Gallery -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ImageGallery",
+        "name": "InnovateTech Solutions Gallery",
+        "description": "Gallery showcasing InnovateTech Solutions' projects, team, events, and work environment",
+        "url": "https://innovatech.com/gallery.html",
+        "mainEntity": {
+            "@type": "ItemList",
+            "itemListElement": [
+                {
+                    "@type": "ImageObject",
+                    "name": "Web Development Projects",
+                    "description": "Showcase of our web development work",
+                    "contentUrl": "https://innovatech.com/images/gallery/web-projects.jpg"
+                },
+                {
+                    "@type": "ImageObject",
+                    "name": "Mobile App Development",
+                    "description": "Mobile applications developed by our team",
+                    "contentUrl": "https://innovatech.com/images/gallery/mobile-apps.jpg"
+                }
+            ]
+        }
+    }
+    </script>
+    
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -117,21 +166,759 @@
     </header>
     
     <main>
-        <!-- Main content for gallery page will go here -->
-        <section id="gallery-intro">
-            <h1>Our Gallery</h1>
-            <p>Explore our work and see the quality we deliver through our project showcase.</p>
+        <!-- Hero Section -->
+        <section class="hero hero-gallery">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Our Gallery</h1>
+                    <p class="hero-subtitle">Explore our work, meet our team, and discover the innovation we bring to every project through our visual showcase.</p>
+                    <div class="hero-cta">
+                        <a href="#gallery-grid" class="btn btn-primary btn-large">Browse Gallery</a>
+                        <a href="contact.html" class="btn btn-outline btn-large">Start Your Project</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-graphic">
+                        <i class="fas fa-images"></i>
+                    </div>
+                </div>
+            </div>
         </section>
-        
-        <section id="project-gallery">
-            <h2>Project Showcase</h2>
-            <p>Browse through our completed projects and success stories.</p>
+
+        <!-- Gallery Controls -->
+        <section class="gallery-controls">
+            <div class="container">
+                <div class="controls-wrapper">
+                    <!-- Category Filter -->
+                    <div class="filter-controls">
+                        <button class="filter-btn active" data-category="all">
+                            <i class="fas fa-th"></i>
+                            All Images
+                            <span class="filter-count">24</span>
+                        </button>
+                        <button class="filter-btn" data-category="projects">
+                            <i class="fas fa-laptop-code"></i>
+                            Projects
+                            <span class="filter-count">8</span>
+                        </button>
+                        <button class="filter-btn" data-category="team">
+                            <i class="fas fa-users"></i>
+                            Team
+                            <span class="filter-count">6</span>
+                        </button>
+                        <button class="filter-btn" data-category="events">
+                            <i class="fas fa-calendar-alt"></i>
+                            Events
+                            <span class="filter-count">4</span>
+                        </button>
+                        <button class="filter-btn" data-category="before-after">
+                            <i class="fas fa-exchange-alt"></i>
+                            Before/After
+                            <span class="filter-count">3</span>
+                        </button>
+                        <button class="filter-btn" data-category="awards">
+                            <i class="fas fa-trophy"></i>
+                            Awards
+                            <span class="filter-count">3</span>
+                        </button>
+                    </div>
+                    
+                    <!-- View Options -->
+                    <div class="view-controls">
+                        <button class="view-btn active" data-view="grid" title="Grid View">
+                            <i class="fas fa-th"></i>
+                        </button>
+                        <button class="view-btn" data-view="masonry" title="Masonry View">
+                            <i class="fas fa-th-large"></i>
+                        </button>
+                        <button class="view-btn" data-view="list" title="List View">
+                            <i class="fas fa-list"></i>
+                        </button>
+                    </div>
+                    
+                    <!-- Sort Options -->
+                    <div class="sort-controls">
+                        <select class="sort-select" id="sortSelect">
+                            <option value="newest">Newest First</option>
+                            <option value="oldest">Oldest First</option>
+                            <option value="name">Name (A-Z)</option>
+                            <option value="category">Category</option>
+                            <option value="random">Random</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Search -->
+                    <div class="search-controls">
+                        <div class="search-box">
+                            <input type="search" id="gallerySearch" placeholder="Search images..." class="search-input">
+                            <button class="search-btn" aria-label="Search">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
-        
-        <section id="team-gallery">
-            <h2>Team & Office</h2>
-            <p>Meet our team and take a look at our work environment.</p>
+
+        <!-- Gallery Grid -->
+        <section class="gallery-section" id="gallery-grid">
+            <div class="container">
+                <div class="gallery-grid grid-view" id="galleryContainer">
+                    <!-- Projects Category -->
+                    <div class="gallery-item" data-category="projects" data-title="E-commerce Platform" data-date="2024-01-15">
+                        <div class="gallery-item-inner">
+                            <img src="https://picsum.photos/seed/ecommerce1/400/300.jpg" alt="E-commerce Platform Development" loading="lazy" class="gallery-image">
+                            <div class="gallery-overlay">
+                                <div class="gallery-content">
+                                    <h3 class="gallery-title">E-commerce Platform</h3>
+                                    <p class="gallery-description">Modern e-commerce solution with advanced features and seamless user experience</p>
+                                    <div class="gallery-meta">
+                                        <span class="gallery-date">Jan 15, 2024</span>
+                                        <span class="gallery-category">Projects</span>
+                                    </div>
+                                    <div class="gallery-actions">
+                                        <button class="btn-icon view-btn" title="View Image">
+                                            <i class="fas fa-expand"></i>
+                                        </button>
+                                        <button class="btn-icon share-btn" title="Share">
+                                            <i class="fas fa-share-alt"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-category="projects" data-title="Mobile Banking App" data-date="2024-01-10">
+                        <div class="gallery-item-inner">
+                            <img src="https://picsum.photos/seed/banking1/400/300.jpg" alt="Mobile Banking Application" loading="lazy" class="gallery-image">
+                            <div class="gallery-overlay">
+                                <div class="gallery-content">
+                                    <h3 class="gallery-title">Mobile Banking App</h3>
+                                    <p class="gallery-description">Secure and user-friendly banking application with biometric authentication</p>
+                                    <div class="gallery-meta">
+                                        <span class="gallery-date">Jan 10, 2024</span>
+                                        <span class="gallery-category">Projects</span>
+                                    </div>
+                                    <div class="gallery-actions">
+                                        <button class="btn-icon view-btn" title="View Image">
+                                            <i class="fas fa-expand"></i>
+                                        </button>
+                                        <button class="btn-icon share-btn" title="Share">
+                                            <i class="fas fa-share-alt"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-category="projects" data-title="Healthcare Portal" data-date="2023-12-20">
+                        <div class="gallery-item-inner">
+                            <img src="https://picsum.photos/seed/healthcare1/400/300.jpg" alt="Healthcare Portal" loading="lazy" class="gallery-image">
+                            <div class="gallery-overlay">
+                                <div class="gallery-content">
+                                    <h3 class="gallery-title">Healthcare Portal</h3>
+                                    <p class="gallery-description">Comprehensive patient management system with telemedicine features</p>
+                                    <div class="gallery-meta">
+                                        <span class="gallery-date">Dec 20, 2023</span>
+                                        <span class="gallery-category">Projects</span>
+                                    </div>
+                                    <div class="gallery-actions">
+                                        <button class="btn-icon view-btn" title="View Image">
+                                            <i class="fas fa-expand"></i>
+                                        </button>
+                                        <button class="btn-icon share-btn" title="Share">
+                                            <i class="fas fa-share-alt"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-category="projects" data-title="Cloud Migration" data-date="2023-10-15">
+                        <div class="gallery-item-inner">
+                            <img src="https://picsum.photos/seed/cloud1/400/300.jpg" alt="Cloud Migration Project" loading="lazy" class="gallery-image">
+                            <div class="gallery-overlay">
+                                <div class="gallery-content">
+                                    <h3 class="gallery-title">Cloud Migration</h3>
+                                    <p class="gallery-description">Enterprise cloud infrastructure setup with zero-downtime migration</p>
+                                    <div class="gallery-meta">
+                                        <span class="gallery-date">Oct 15, 2023</span>
+                                        <span class="gallery-category">Projects</span>
+                                    </div>
+                                    <div class="gallery-actions">
+                                        <button class="btn-icon view-btn" title="View Image">
+                                            <i class="fas fa-expand"></i>
+                                        </button>
+                                        <button class="btn-icon share-btn" title="Share">
+                                            <i class="fas fa-share-alt"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-category="projects" data-title="AI Dashboard" data-date="2023-09-25">
+                        <div class="gallery-item-inner">
+                            <img src="https://picsum.photos/seed/aidash1/400/300.jpg" alt="AI Analytics Dashboard" loading="lazy" class="gallery-image">
+                            <div class="gallery-overlay">
+                                <div class="gallery-content">
+                                    <h3 class="gallery-title">AI Dashboard</h3>
+                                    <p class="gallery-description">Real-time analytics dashboard powered by machine learning algorithms</p>
+                                    <div class="gallery-meta">
+                                        <span class="gallery-date">Sep 25, 2023</span>
+                                        <span class="gallery-category">Projects</span>
+                                    </div>
+                                    <div class="gallery-actions">
+                                        <button class="btn-icon view-btn" title="View Image">
+                                            <i class="fas fa-expand"></i>
+                                        </button>
+                                        <button class="btn-icon share-btn" title="Share">
+                                            <i class="fas fa-share-alt"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-category="projects" data-title="IoT Platform" data-date="2023-08-12">
+                        <div class="gallery-item-inner">
+                            <img src="https://picsum.photos/seed/iot1/400/300.jpg" alt="IoT Management Platform" loading="lazy" class="gallery-image">
+                            <div class="gallery-overlay">
+                                <div class="gallery-content">
+                                    <h3 class="gallery-title">IoT Platform</h3>
+                                    <p class="gallery-description">Smart device management platform with real-time monitoring</p>
+                                    <div class="gallery-meta">
+                                        <span class="gallery-date">Aug 12, 2023</span>
+                                        <span class="gallery-category">Projects</span>
+                                    </div>
+                                    <div class="gallery-actions">
+                                        <button class="btn-icon view-btn" title="View Image">
+                                            <i class="fas fa-expand"></i>
+                                        </button>
+                                        <button class="btn-icon share-btn" title="Share">
+                                            <i class="fas fa-share-alt"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-category="projects" data-title="Learning Management System" data-date="2023-07-08">
+                        <div class="gallery-item-inner">
+                            <img src="https://picsum.photos/seed/lms1/400/300.jpg" alt="Learning Management System" loading="lazy" class="gallery-image">
+                            <div class="gallery-overlay">
+                                <div class="gallery-content">
+                                    <h3 class="gallery-title">Learning Management System</h3>
+                                    <p class="gallery-description">Educational platform with interactive courses and progress tracking</p>
+                                    <div class="gallery-meta">
+                                        <span class="gallery-date">Jul 8, 2023</span>
+                                        <span class="gallery-category">Projects</span>
+                                    </div>
+                                    <div class="gallery-actions">
+                                        <button class="btn-icon view-btn" title="View Image">
+                                            <i class="fas fa-expand"></i>
+                                        </button>
+                                        <button class="btn-icon share-btn" title="Share">
+                                            <i class="fas fa-share-alt"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-category="projects" data-title="Supply Chain Solution" data-date="2023-06-20">
+                        <div class="gallery-item-inner">
+                            <img src="https://picsum.photos/seed/supply1/400/300.jpg" alt="Supply Chain Management" loading="lazy" class="gallery-image">
+                            <div class="gallery-overlay">
+                                <div class="gallery-content">
+                                    <h3 class="gallery-title">Supply Chain Solution</h3>
+                                    <p class="gallery-description">End-to-end supply chain management with blockchain integration</p>
+                                    <div class="gallery-meta">
+                                        <span class="gallery-date">Jun 20, 2023</span>
+                                        <span class="gallery-category">Projects</span>
+                                    </div>
+                                    <div class="gallery-actions">
+                                        <button class="btn-icon view-btn" title="View Image">
+                                            <i class="fas fa-expand"></i>
+                                        </button>
+                                        <button class="btn-icon share-btn" title="Share">
+                                            <i class="fas fa-share-alt"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Team Category -->
+                    <div class="gallery-item" data-category="team" data-title="Development Team" data-date="2024-01-05">
+                        <div class="gallery-item-inner">
+                            <img src="https://picsum.photos/seed/team1/400/300.jpg" alt="Development Team" loading="lazy" class="gallery-image">
+                            <div class="gallery-overlay">
+                                <div class="gallery-content">
+                                    <h3 class="gallery-title">Development Team</h3>
+                                    <p class="gallery-description">Our talented development team collaborating on innovative solutions</p>
+                                    <div class="gallery-meta">
+                                        <span class="gallery-date">Jan 5, 2024</span>
+                                        <span class="gallery-category">Team</span>
+                                    </div>
+                                    <div class="gallery-actions">
+                                        <button class="btn-icon view-btn" title="View Image">
+                                            <i class="fas fa-expand"></i>
+                                        </button>
+                                        <button class="btn-icon share-btn" title="Share">
+                                            <i class="fas fa-share-alt"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-category="team" data-title="Office Environment" data-date="2023-12-15">
+                        <div class="gallery-item-inner">
+                            <img src="https://picsum.photos/seed/office1/400/300.jpg" alt="Modern Office Space" loading="lazy" class="gallery-image">
+                            <div class="gallery-overlay">
+                                <div class="gallery-content">
+                                    <h3 class="gallery-title">Office Environment</h3>
+                                    <p class="gallery-description">Our modern and collaborative workspace designed for creativity</p>
+                                    <div class="gallery-meta">
+                                        <span class="gallery-date">Dec 15, 2023</span>
+                                        <span class="gallery-category">Team</span>
+                                    </div>
+                                    <div class="gallery-actions">
+                                        <button class="btn-icon view-btn" title="View Image">
+                                            <i class="fas fa-expand"></i>
+                                        </button>
+                                        <button class="btn-icon share-btn" title="Share">
+                                            <i class="fas fa-share-alt"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-category="team" data-title="Team Building" data-date="2023-09-20">
+                        <div class="gallery-item-inner">
+                            <img src="https://picsum.photos/seed/teambuild1/400/300.jpg" alt="Team Building Activity" loading="lazy" class="gallery-image">
+                            <div class="gallery-overlay">
+                                <div class="gallery-content">
+                                    <h3 class="gallery-title">Team Building</h3>
+                                    <p class="gallery-description">Quarterly team building activities fostering collaboration and trust</p>
+                                    <div class="gallery-meta">
+                                        <span class="gallery-date">Sep 20, 2023</span>
+                                        <span class="gallery-category">Team</span>
+                                    </div>
+                                    <div class="gallery-actions">
+                                        <button class="btn-icon view-btn" title="View Image">
+                                            <i class="fas fa-expand"></i>
+                                        </button>
+                                        <button class="btn-icon share-btn" title="Share">
+                                            <i class="fas fa-share-alt"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-category="team" data-title="Board Meeting" data-date="2023-08-05">
+                        <div class="gallery-item-inner">
+                            <img src="https://picsum.photos/seed/meeting1/400/300.jpg" alt="Strategic Board Meeting" loading="lazy" class="gallery-image">
+                            <div class="gallery-overlay">
+                                <div class="gallery-content">
+                                    <h3 class="gallery-title">Board Meeting</h3>
+                                    <p class="gallery-description">Strategic planning session with leadership team</p>
+                                    <div class="gallery-meta">
+                                        <span class="gallery-date">Aug 5, 2023</span>
+                                        <span class="gallery-category">Team</span>
+                                    </div>
+                                    <div class="gallery-actions">
+                                        <button class="btn-icon view-btn" title="View Image">
+                                            <i class="fas fa-expand"></i>
+                                        </button>
+                                        <button class="btn-icon share-btn" title="Share">
+                                            <i class="fas fa-share-alt"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-category="team" data-title="Training Session" data-date="2023-07-18">
+                        <div class="gallery-item-inner">
+                            <img src="https://picsum.photos/seed/training1/400/300.jpg" alt="Professional Training Session" loading="lazy" class="gallery-image">
+                            <div class="gallery-overlay">
+                                <div class="gallery-content">
+                                    <h3 class="gallery-title">Training Session</h3>
+                                    <p class="gallery-description">Continuous learning and skill development programs</p>
+                                    <div class="gallery-meta">
+                                        <span class="gallery-date">Jul 18, 2023</span>
+                                        <span class="gallery-category">Team</span>
+                                    </div>
+                                    <div class="gallery-actions">
+                                        <button class="btn-icon view-btn" title="View Image">
+                                            <i class="fas fa-expand"></i>
+                                        </button>
+                                        <button class="btn-icon share-btn" title="Share">
+                                            <i class="fas fa-share-alt"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-category="team" data-title="Company Celebration" data-date="2023-06-30">
+                        <div class="gallery-item-inner">
+                            <img src="https://picsum.photos/seed/celebration1/400/300.jpg" alt="Company Anniversary Celebration" loading="lazy" class="gallery-image">
+                            <div class="gallery-overlay">
+                                <div class="gallery-content">
+                                    <h3 class="gallery-title">Company Celebration</h3>
+                                    <p class="gallery-description">Annual company anniversary celebration and awards ceremony</p>
+                                    <div class="gallery-meta">
+                                        <span class="gallery-date">Jun 30, 2023</span>
+                                        <span class="gallery-category">Team</span>
+                                    </div>
+                                    <div class="gallery-actions">
+                                        <button class="btn-icon view-btn" title="View Image">
+                                            <i class="fas fa-expand"></i>
+                                        </button>
+                                        <button class="btn-icon share-btn" title="Share">
+                                            <i class="fas fa-share-alt"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Events Category -->
+                    <div class="gallery-item" data-category="events" data-title="Tech Conference 2024" data-date="2024-01-20">
+                        <div class="gallery-item-inner">
+                            <img src="https://picsum.photos/seed/conference1/400/300.jpg" alt="Tech Conference" loading="lazy" class="gallery-image">
+                            <div class="gallery-overlay">
+                                <div class="gallery-content">
+                                    <h3 class="gallery-title">Tech Conference 2024</h3>
+                                    <p class="gallery-description">Presenting our latest innovations at international tech summit</p>
+                                    <div class="gallery-meta">
+                                        <span class="gallery-date">Jan 20, 2024</span>
+                                        <span class="gallery-category">Events</span>
+                                    </div>
+                                    <div class="gallery-actions">
+                                        <button class="btn-icon view-btn" title="View Image">
+                                            <i class="fas fa-expand"></i>
+                                        </button>
+                                        <button class="btn-icon share-btn" title="Share">
+                                            <i class="fas fa-share-alt"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-category="events" data-title="Product Launch" data-date="2023-11-15">
+                        <div class="gallery-item-inner">
+                            <img src="https://picsum.photos/seed/launch1/400/300.jpg" alt="Product Launch Event" loading="lazy" class="gallery-image">
+                            <div class="gallery-overlay">
+                                <div class="gallery-content">
+                                    <h3 class="gallery-title">Product Launch</h3>
+                                    <p class="gallery-description">Exciting product launch event with industry partners and media</p>
+                                    <div class="gallery-meta">
+                                        <span class="gallery-date">Nov 15, 2023</span>
+                                        <span class="gallery-category">Events</span>
+                                    </div>
+                                    <div class="gallery-actions">
+                                        <button class="btn-icon view-btn" title="View Image">
+                                            <i class="fas fa-expand"></i>
+                                        </button>
+                                        <button class="btn-icon share-btn" title="Share">
+                                            <i class="fas fa-share-alt"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-category="events" data-title="Hackathon" data-date="2023-10-08">
+                        <div class="gallery-item-inner">
+                            <img src="https://picsum.photos/seed/hackathon1/400/300.jpg" alt="Internal Hackathon Event" loading="lazy" class="gallery-image">
+                            <div class="gallery-overlay">
+                                <div class="gallery-content">
+                                    <h3 class="gallery-title">Hackathon</h3>
+                                    <p class="gallery-description">48-hour internal hackathon fostering innovation and creativity</p>
+                                    <div class="gallery-meta">
+                                        <span class="gallery-date">Oct 8, 2023</span>
+                                        <span class="gallery-category">Events</span>
+                                    </div>
+                                    <div class="gallery-actions">
+                                        <button class="btn-icon view-btn" title="View Image">
+                                            <i class="fas fa-expand"></i>
+                                        </button>
+                                        <button class="btn-icon share-btn" title="Share">
+                                            <i class="fas fa-share-alt"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-category="events" data-title="Community Outreach" data-date="2023-09-12">
+                        <div class="gallery-item-inner">
+                            <img src="https://picsum.photos/seed/outreach1/400/300.jpg" alt="Community Outreach Program" loading="lazy" class="gallery-image">
+                            <div class="gallery-overlay">
+                                <div class="gallery-content">
+                                    <h3 class="gallery-title">Community Outreach</h3>
+                                    <p class="gallery-description">STEM education program for local schools and communities</p>
+                                    <div class="gallery-meta">
+                                        <span class="gallery-date">Sep 12, 2023</span>
+                                        <span class="gallery-category">Events</span>
+                                    </div>
+                                    <div class="gallery-actions">
+                                        <button class="btn-icon view-btn" title="View Image">
+                                            <i class="fas fa-expand"></i>
+                                        </button>
+                                        <button class="btn-icon share-btn" title="Share">
+                                            <i class="fas fa-share-alt"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Before/After Category -->
+                    <div class="gallery-item" data-category="before-after" data-title="Website Redesign" data-date="2023-11-30">
+                        <div class="gallery-item-inner">
+                            <img src="https://picsum.photos/seed/redesign1/400/300.jpg" alt="Website Before/After" loading="lazy" class="gallery-image">
+                            <div class="gallery-overlay">
+                                <div class="gallery-content">
+                                    <h3 class="gallery-title">Website Redesign</h3>
+                                    <p class="gallery-description">Complete transformation of outdated website to modern design</p>
+                                    <div class="gallery-meta">
+                                        <span class="gallery-date">Nov 30, 2023</span>
+                                        <span class="gallery-category">Before/After</span>
+                                    </div>
+                                    <div class="gallery-actions">
+                                        <button class="btn-icon view-btn" title="View Image">
+                                            <i class="fas fa-expand"></i>
+                                        </button>
+                                        <button class="btn-icon share-btn" title="Share">
+                                            <i class="fas fa-share-alt"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-category="before-after" data-title="App UI Overhaul" data-date="2023-10-22">
+                        <div class="gallery-item-inner">
+                            <img src="https://picsum.photos/seed/appui1/400/300.jpg" alt="Mobile App UI Transformation" loading="lazy" class="gallery-image">
+                            <div class="gallery-overlay">
+                                <div class="gallery-content">
+                                    <h3 class="gallery-title">App UI Overhaul</h3>
+                                    <p class="gallery-description">Mobile app interface redesign with improved user experience</p>
+                                    <div class="gallery-meta">
+                                        <span class="gallery-date">Oct 22, 2023</span>
+                                        <span class="gallery-category">Before/After</span>
+                                    </div>
+                                    <div class="gallery-actions">
+                                        <button class="btn-icon view-btn" title="View Image">
+                                            <i class="fas fa-expand"></i>
+                                        </button>
+                                        <button class="btn-icon share-btn" title="Share">
+                                            <i class="fas fa-share-alt"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-category="before-after" data-title="Brand Identity" data-date="2023-09-05">
+                        <div class="gallery-item-inner">
+                            <img src="https://picsum.photos/seed/brand1/400/300.jpg" alt="Brand Identity Transformation" loading="lazy" class="gallery-image">
+                            <div class="gallery-overlay">
+                                <div class="gallery-content">
+                                    <h3 class="gallery-title">Brand Identity</h3>
+                                    <p class="gallery-description">Complete brand identity refresh for modern market positioning</p>
+                                    <div class="gallery-meta">
+                                        <span class="gallery-date">Sep 5, 2023</span>
+                                        <span class="gallery-category">Before/After</span>
+                                    </div>
+                                    <div class="gallery-actions">
+                                        <button class="btn-icon view-btn" title="View Image">
+                                            <i class="fas fa-expand"></i>
+                                        </button>
+                                        <button class="btn-icon share-btn" title="Share">
+                                            <i class="fas fa-share-alt"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Awards Category -->
+                    <div class="gallery-item" data-category="awards" data-title="Innovation Award 2023" data-date="2023-12-01">
+                        <div class="gallery-item-inner">
+                            <img src="https://picsum.photos/seed/award1/400/300.jpg" alt="Innovation Award" loading="lazy" class="gallery-image">
+                            <div class="gallery-overlay">
+                                <div class="gallery-content">
+                                    <h3 class="gallery-title">Innovation Award 2023</h3>
+                                    <p class="gallery-description">Recognized for technological innovation and industry impact</p>
+                                    <div class="gallery-meta">
+                                        <span class="gallery-date">Dec 1, 2023</span>
+                                        <span class="gallery-category">Awards</span>
+                                    </div>
+                                    <div class="gallery-actions">
+                                        <button class="btn-icon view-btn" title="View Image">
+                                            <i class="fas fa-expand"></i>
+                                        </button>
+                                        <button class="btn-icon share-btn" title="Share">
+                                            <i class="fas fa-share-alt"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-category="awards" data-title="Best Workplace" data-date="2023-11-10">
+                        <div class="gallery-item-inner">
+                            <img src="https://picsum.photos/seed/workplace1/400/300.jpg" alt="Best Workplace Award" loading="lazy" class="gallery-image">
+                            <div class="gallery-overlay">
+                                <div class="gallery-content">
+                                    <h3 class="gallery-title">Best Workplace</h3>
+                                    <p class="gallery-description">Certified as an exceptional workplace for employee satisfaction</p>
+                                    <div class="gallery-meta">
+                                        <span class="gallery-date">Nov 10, 2023</span>
+                                        <span class="gallery-category">Awards</span>
+                                    </div>
+                                    <div class="gallery-actions">
+                                        <button class="btn-icon view-btn" title="View Image">
+                                            <i class="fas fa-expand"></i>
+                                        </button>
+                                        <button class="btn-icon share-btn" title="Share">
+                                            <i class="fas fa-share-alt"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-category="awards" data-title="Excellence in Design" data-date="2023-08-25">
+                        <div class="gallery-item-inner">
+                            <img src="https://picsum.photos/seed/design1/400/300.jpg" alt="Design Excellence Award" loading="lazy" class="gallery-image">
+                            <div class="gallery-overlay">
+                                <div class="gallery-content">
+                                    <h3 class="gallery-title">Excellence in Design</h3>
+                                    <p class="gallery-description">Awarded for outstanding user interface and experience design</p>
+                                    <div class="gallery-meta">
+                                        <span class="gallery-date">Aug 25, 2023</span>
+                                        <span class="gallery-category">Awards</span>
+                                    </div>
+                                    <div class="gallery-actions">
+                                        <button class="btn-icon view-btn" title="View Image">
+                                            <i class="fas fa-expand"></i>
+                                        </button>
+                                        <button class="btn-icon share-btn" title="Share">
+                                            <i class="fas fa-share-alt"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Load More Button -->
+                <div class="gallery-pagination">
+                    <button class="btn btn-outline btn-large" id="loadMoreBtn">
+                        <i class="fas fa-plus"></i>
+                        Load More Images
+                    </button>
+                    <div class="gallery-stats">
+                        <span id="imageCount">Showing 10 of 24 images</span>
+                    </div>
+                </div>
+            </div>
         </section>
+
+        <!-- Lightbox Modal -->
+        <div class="lightbox" id="lightbox">
+            <div class="lightbox-overlay"></div>
+            <div class="lightbox-content">
+                <button class="lightbox-close" id="lightboxClose" aria-label="Close lightbox">
+                    <i class="fas fa-times"></i>
+                </button>
+                
+                <div class="lightbox-image-container">
+                    <img src="" alt="" class="lightbox-image" id="lightboxImage">
+                    <div class="lightbox-loading">
+                        <i class="fas fa-spinner fa-spin"></i>
+                    </div>
+                </div>
+                
+                <div class="lightbox-info">
+                    <h3 class="lightbox-title" id="lightboxTitle"></h3>
+                    <p class="lightbox-description" id="lightboxDescription"></p>
+                    <div class="lightbox-meta">
+                        <span class="lightbox-date" id="lightboxDate"></span>
+                        <span class="lightbox-category" id="lightboxCategory"></span>
+                    </div>
+                </div>
+                
+                <div class="lightbox-controls">
+                    <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous image">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next image">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                
+                <div class="lightbox-actions">
+                    <button class="lightbox-action" id="lightboxZoom" title="Zoom">
+                        <i class="fas fa-search-plus"></i>
+                    </button>
+                    <button class="lightbox-action" id="lightboxSlideshow" title="Slideshow">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    <button class="lightbox-action" id="lightboxDownload" title="Download">
+                        <i class="fas fa-download"></i>
+                    </button>
+                    <button class="lightbox-action" id="lightboxShare" title="Share">
+                        <i class="fas fa-share-alt"></i>
+                    </button>
+                    <button class="lightbox-action" id="lightboxFullscreen" title="Fullscreen">
+                        <i class="fas fa-expand"></i>
+                    </button>
+                </div>
+                
+                <!-- Thumbnail Navigation -->
+                <div class="lightbox-thumbnails" id="lightboxThumbnails"></div>
+            </div>
+        </div>
+
+        <!-- Back to Top Button -->
+        <button class="back-to-top" id="backToTop" aria-label="Back to top">
+            <i class="fas fa-arrow-up"></i>
+        </button>
     </main>
     
     <footer>
