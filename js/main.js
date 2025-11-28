@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initContactForm();
     initFAQ();
     initMap();
+    initFooterFeatures();
 });
 
 /**
@@ -1561,4 +1562,314 @@ window.GallerySystem = {
     initGalleryFilter,
     initLightbox,
     updateImageCount
+};
+
+/**
+ * Initialize Footer Features
+ */
+function initFooterFeatures() {
+    initBackToTop();
+    initNewsletterForm();
+    initFooterAccessibility();
+}
+
+/**
+ * Initialize Back to Top Button
+ */
+function initBackToTop() {
+    const backToTopBtn = document.getElementById('backToTop');
+    
+    if (!backToTopBtn) return;
+    
+    // Show/hide button based on scroll position
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+            backToTopBtn.classList.add('visible');
+        } else {
+            backToTopBtn.classList.remove('visible');
+        }
+    });
+    
+    // Handle click event
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+    
+    // Handle keyboard interaction
+    backToTopBtn.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            backToTopBtn.click();
+        }
+    });
+}
+
+/**
+ * Initialize Newsletter Form
+ */
+function initNewsletterForm() {
+    const newsletterForms = document.querySelectorAll('.newsletter-form');
+    
+    newsletterForms.forEach(form => {
+        const input = form.querySelector('.newsletter-input');
+        const button = form.querySelector('.newsletter-btn');
+        
+        if (!input || !button) return;
+        
+        // Handle form submission
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const email = input.value.trim();
+            
+            // Basic email validation
+            if (!validateEmail(email)) {
+                showNewsletterMessage(form, 'Please enter a valid email address', 'error');
+                return;
+            }
+            
+            // Show loading state
+            const originalButtonText = button.innerHTML;
+            button.disabled = true;
+            button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Subscribing...';
+            
+            // Simulate API call
+            setTimeout(() => {
+                // Show success message
+                showNewsletterMessage(form, 'Thank you for subscribing! Check your email for confirmation.', 'success');
+                
+                // Reset form
+                input.value = '';
+                button.disabled = false;
+                button.innerHTML = originalButtonText;
+                
+                // Log subscription (replace with actual implementation)
+                console.log('Newsletter subscription:', email);
+                
+                // Hide message after delay
+                setTimeout(() => {
+                    hideNewsletterMessage(form);
+                }, 5000);
+                
+            }, 2000);
+        });
+        
+        // Handle input validation
+        input.addEventListener('blur', () => {
+            const email = input.value.trim();
+            if (email && !validateEmail(email)) {
+                input.classList.add('error');
+            } else {
+                input.classList.remove('error');
+            }
+        });
+        
+        // Clear error on input
+        input.addEventListener('input', () => {
+            input.classList.remove('error');
+            hideNewsletterMessage(form);
+        });
+    });
+}
+
+/**
+ * Validate Email Address
+ */
+function validateEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+}
+
+/**
+ * Show Newsletter Message
+ */
+function showNewsletterMessage(form, message, type) {
+    // Remove existing message
+    hideNewsletterMessage(form);
+    
+    // Create message element
+    const messageElement = document.createElement('div');
+    messageElement.className = `newsletter-message newsletter-${type}`;
+    messageElement.innerHTML = `
+        <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'}"></i>
+        <span>${message}</span>
+    `;
+    
+    // Add styles
+    messageElement.style.cssText = `
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 16px;
+        margin-top: 12px;
+        border-radius: 8px;
+        font-size: 14px;
+        line-height: 1.4;
+        ${type === 'success' 
+            ? 'background: rgba(34, 197, 94, 0.1); color: #16a34a; border: 1px solid rgba(34, 197, 94, 0.2);'
+            : 'background: rgba(239, 68, 68, 0.1); color: #dc2626; border: 1px solid rgba(239, 68, 68, 0.2);'
+        }
+        animation: slideInUp 0.3s ease-out;
+    `;
+    
+    // Insert after form
+    form.parentNode.insertBefore(messageElement, form.nextSibling);
+    
+    // Add animation keyframes if not exists
+    if (!document.querySelector('#newsletter-animations')) {
+        const style = document.createElement('style');
+        style.id = 'newsletter-animations';
+        style.textContent = `
+            @keyframes slideInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+}
+
+/**
+ * Hide Newsletter Message
+ */
+function hideNewsletterMessage(form) {
+    const existingMessage = form.parentNode.querySelector('.newsletter-message');
+    if (existingMessage) {
+        existingMessage.remove();
+    }
+}
+
+/**
+ * Initialize Footer Accessibility
+ */
+function initFooterAccessibility() {
+    // Add ARIA labels for social media links
+    const socialLinks = document.querySelectorAll('.footer-social a');
+    socialLinks.forEach(link => {
+        const platform = link.getAttribute('aria-label');
+        if (platform && !link.getAttribute('title')) {
+            link.setAttribute('title', `Follow us on ${platform}`);
+        }
+    });
+    
+    // Add keyboard navigation for footer links
+    const footerLinks = document.querySelectorAll('.footer-links a, .footer-contact a');
+    footerLinks.forEach(link => {
+        link.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                link.click();
+            }
+        });
+    });
+    
+    // Add focus management for newsletter forms
+    const newsletterInputs = document.querySelectorAll('.newsletter-input');
+    newsletterInputs.forEach(input => {
+        input.addEventListener('focus', () => {
+            input.parentElement.classList.add('focused');
+        });
+        
+        input.addEventListener('blur', () => {
+            input.parentElement.classList.remove('focused');
+        });
+    });
+}
+
+/**
+ * Handle Footer Link Analytics
+ */
+function initFooterAnalytics() {
+    const footerLinks = document.querySelectorAll('.footer a');
+    
+    footerLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            const href = link.getAttribute('href');
+            const linkText = link.textContent.trim();
+            const linkSection = getLinkSection(link);
+            
+            // Track click (replace with actual analytics implementation)
+            console.log('Footer link clicked:', {
+                href,
+                text: linkText,
+                section: linkSection
+            });
+            
+            // Handle external links
+            if (href && href.startsWith('http')) {
+                // Open in new tab for external links
+                link.setAttribute('target', '_blank');
+                link.setAttribute('rel', 'noopener noreferrer');
+            }
+        });
+    });
+}
+
+/**
+ * Get Link Section for Analytics
+ */
+function getLinkSection(link) {
+    const parentSection = link.closest('.footer-section');
+    if (!parentSection) return 'unknown';
+    
+    const sectionTitle = parentSection.querySelector('h4');
+    if (sectionTitle) {
+        return sectionTitle.textContent.toLowerCase();
+    }
+    
+    return 'footer';
+}
+
+/**
+ * Initialize Footer Performance Optimizations
+ */
+function initFooterPerformance() {
+    // Lazy load footer images if any
+    const footerImages = document.querySelectorAll('.footer img');
+    
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    if (img.dataset.src) {
+                        img.src = img.dataset.src;
+                        img.removeAttribute('data-src');
+                    }
+                    imageObserver.unobserve(img);
+                }
+            });
+        });
+        
+        footerImages.forEach(img => {
+            if (img.src && !img.complete) {
+                img.dataset.src = img.src;
+                img.src = '';
+                imageObserver.observe(img);
+            }
+        });
+    }
+}
+
+// Initialize footer analytics and performance
+document.addEventListener('DOMContentLoaded', () => {
+    initFooterAnalytics();
+    initFooterPerformance();
+});
+
+// Export footer functions
+window.FooterSystem = {
+    initFooterFeatures,
+    initBackToTop,
+    initNewsletterForm,
+    validateEmail
 };
